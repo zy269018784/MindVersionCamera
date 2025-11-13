@@ -47,6 +47,8 @@ int MindVisionMain2(int argc, char** argv)
 
 int MindVisionMain(int argc, char** argv)
 {
+    MindVisonCamera Camera;
+
     CameraSdkStatus status;
 
     // 调用CameraEnumerateDevice前，先设置CameraNums = 16，表示最多只读取16个设备。
@@ -64,28 +66,34 @@ int MindVisionMain(int argc, char** argv)
         printf("No camera was found!");
         return -1;
     }
-    printf("debug 1\n");
+    printf("CameraNums %d\n", CameraNums);
     // 该示例中，我们只初始化第一个相机。
     // (-1,-1)表示加载上次退出前保存的参数，如果是第一次使用该相机，则加载默认参数。
     // In this example, we only initialize the first camera.
     // (-1,-1) means to load the parameters saved before the last exit. If it is the first time to use the camera, then load the default parameters.
-    int hCamera = 0;
-    status = CameraInit(&CameraList[0], -1, -1, &hCamera);
+    CameraHandle hCamera = 0;
+    status = Camera.CameraInit(&CameraList[0], -1, -1);
+    //status = CameraInit(&CameraList[0], -1, -1, &hCamera);
     if (status != CAMERA_STATUS_SUCCESS)
     {
-        printf("Failed to init the camera! Error code is %d", status);
+        printf("CameraInit Error code: %d", status);
         return -1;
     }
-    printf("debug 2\n");
+
+    hCamera = Camera.GetHandle();
     // 获得该相机的特性描述
     // Get the camera's feature description
     tSdkCameraCapbility CameraInfo;
-    CameraGetCapability(hCamera, &CameraInfo);
-
+    status = CameraGetCapability(hCamera, &CameraInfo);
+    if (status != CAMERA_STATUS_SUCCESS)
+    {
+        printf("CameraGetCapability Error code: %d", status);
+        return -1;
+    }
     // 判断是黑白相机还是彩色相机
     // Judging whether it is a mono camera or a color camera
     BOOL bMonoCamera = CameraInfo.sIspCapacity.bMonoSensor;
-
+    printf("bMonoCamera %d\n", bMonoCamera);
     // 黑白相机让ISP直接输出MONO数据，而不是扩展成R=G=B的24位灰度
     // Mono cameras allow the ISP to directly output MONO data instead of the 24-bit grayscale expanded to R=G=B
     if (bMonoCamera)
@@ -110,7 +118,7 @@ int MindVisionMain(int argc, char** argv)
     UINT FrameBufferSize = CameraInfo.sResolutionRange.iWidthMax * CameraInfo.sResolutionRange.iHeightMax * (bMonoCamera ? 1 : 3);
     printf("iWidthMax %u\n", CameraInfo.sResolutionRange.iWidthMax);
     printf("iHeightMax %u\n", CameraInfo.sResolutionRange.iHeightMax);
-    printf("FrameBufferSize %u\n", FrameBufferSize);
+    printf("FrameBufferSize %u MB\n", FrameBufferSize / 1024 /1024);
     // 分配RGB buffer，用来存放ISP输出的图像
     // 备注：从相机传输到PC端的是RAW数据，在PC端通过软件ISP转为RGB数据（如果是黑白相机就不需要转换格式，但是ISP还有其它处理，所以也需要分配这个buffer）
     // allocate RGB buffer to store the image output by ISP

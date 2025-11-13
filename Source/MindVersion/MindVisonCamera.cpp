@@ -10,9 +10,13 @@ MindVisonCamera::~MindVisonCamera()
 
 }
 
+CameraHandle MindVisonCamera::GetHandle()
+{
+    return Handle;
+}
+
 CameraSdkStatus MindVisonCamera::CameraInit(tSdkCameraDevInfo* pCameraInfo, int emParamLoadMode, int emTeam)
 {
-	printf("Handle %d\n", Handle);
 	return ::CameraInit(pCameraInfo, emParamLoadMode, emTeam, &Handle);
 }
 
@@ -99,4 +103,14 @@ CameraSdkStatus MindVisonCamera::CameraSnapToBuffer(
     unsigned int wTimes)
 {
     return ::CameraSnapToBuffer(Handle, pFrameInfo, pbyBuffer, wTimes);
+}
+
+CameraSdkStatus MindVisonCamera::CameraSetAeState(bool bAeState)
+{
+    return ::CameraSetAeState(Handle, bAeState);
+}
+
+CameraSdkStatus MindVisonCamera::CameraSetExposureTime(double fExposureTime)
+{
+    return ::CameraSetExposureTime(Handle, fExposureTime);
 }
