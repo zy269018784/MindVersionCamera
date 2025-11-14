@@ -8,6 +8,8 @@ public:
 	MindVisonCamera();
 	~MindVisonCamera();
 	CameraHandle GetHandle();
+	CameraSdkStatus CameraGetCapability();
+	void CreateFramebuffer();
 public:
 	CameraSdkStatus CameraInit(tSdkCameraDevInfo* pCameraInfo, int emParamLoadMode, int emTeam);
 	CameraSdkStatus CameraInitEx(int iDeviceIndex, int emParamLoadMode, int emTeam);
@@ -25,9 +27,20 @@ public:
 
 	CameraSdkStatus CameraReleaseImageBuffer(unsigned char* pbyBuffer);
 
+
+	CameraSdkStatus CameraImageProcess(unsigned char* pbyIn, unsigned char* pbyOut, tSdkFrameHead* pFrInfo);
+
 	CameraSdkStatus CameraSnapJpegToFile(char const* lpszFileName, unsigned char byQuality, unsigned int wTimes);
 
 	CameraSdkStatus CameraSnapToBuffer(tSdkFrameHead* pFrameInfo, unsigned char** pbyBuffer, unsigned int wTimes);
+
+	CameraSdkStatus CameraSaveImage(char* lpszFileName, unsigned char* pbyImageBuffer, tSdkFrameHead* pFrInfo, unsigned int byFileType, unsigned char byQuality);
+
+	CameraSdkStatus CameraSaveImageEx(char* lpszFileName, unsigned char* pbyImageBuffer, unsigned int uImageFormat, int iWidth, int iHeight, unsigned int byFileType, unsigned char byQuality);
+
+	CameraSdkStatus CameraGetCapability(tSdkCameraCapbility* pCameraInfo);
+
+
 
 	/*
 		设置图像的黑电平基准，默认值为0 
@@ -74,6 +87,7 @@ public:
 	*/
 	CameraSdkStatus CameraSetDisplaySize(int iWidth, int iHeight);
 
+public:
 	// 曝光增益API
 	/*
 		设置相机曝光的模式。自动或者手动。
@@ -126,8 +140,53 @@ public:
 	CameraSdkStatus CameraSetLightFrequency(int iFrequencySel);
 
 
+public:
+	// 触发功能
+	CameraSdkStatus CameraSetTriggerMode(int iModeSel);
+
+	/*
+		设置触发模式下的触发帧数。对软件触发和硬件触发模式都有效。默认为1帧，即一次触发信号采集一帧图像。 
+	*/
+	CameraSdkStatus CameraSetTriggerCount(int iCount);
+
+	/*
+		设置外触发信号间隔时间，默认为0，单位为微秒。
+	*/
+	CameraSdkStatus CameraSetExtTrigIntervalTime(unsigned int uTimeUs);
+
+	/*
+		设置相机外触发信号的消抖时间。默认为0，单位为微秒。
+	*/
+	CameraSdkStatus CameraSetExtTrigJitterTime(unsigned int uTimeUs);
+
+
+	/*
+		执行一次软触发。执行后，会触发由CameraSetTriggerCount指定的帧数。
+	*/
+	CameraSdkStatus CameraSoftTrigger();
+	/*
+		设置IO引脚端子上的STROBE信号。该信号可以做闪光灯控制，也可以做外部机械快门控制。
+	*/
+	CameraSdkStatus CameraSetStrobeMode(int iMode);
+
+	/*
+		当STROBE信号处于STROBE_SYNC_WITH_TRIG时，通过该函数设置其相对触发信号延时时间。 
+	*/
+	CameraSdkStatus CameraSetStrobeDelayTime(unsigned int uDelayTimeUs);
+
+	/*
+		当STROBE信号处于STROBE_SYNC_WITH_TRIG时，通过该函数设置其脉冲宽度。 
+	*/
+	CameraSdkStatus CameraSetStrobePulseWidth(unsigned int uTimeUs);
+
+
 private:
 	CameraHandle Handle = -1; 
+public:
+	tSdkCameraCapbility CameraInfo;
+	unsigned int FrameBufferSize;
+	unsigned char* pFrameBuffer;
+	bool bMonoCamera;
 };
 
 #define CHECK_STATUS(status, str) if (status != CAMERA_STATUS_SUCCESS)		\

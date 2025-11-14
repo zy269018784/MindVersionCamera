@@ -7,26 +7,30 @@
 LiveImageProvider::LiveImageProvider() 
     : QQuickImageProvider(QQuickImageProvider::Image)
 {
-    CameraSdkStatus status;
-    tSdkCameraDevInfo CameraList[16];
-    int CameraNums = 1;
-
-    status = CameraEnumerateDevice(CameraList, &CameraNums);
-    if (status != CAMERA_STATUS_SUCCESS)
-    {
-        printf("No camera was found!");
-        return;
-    }
-
-
+    SDK.Camera.CameraPlay();
 }
 
 LiveImageProvider::~LiveImageProvider()
 {
-    qDebug() << __FUNCTION__;
+    qDebug() << __FUNCTION__; 
+    SDK.Camera.CameraStop();
 }
 
 QImage LiveImageProvider::requestImage(const QString& id, QSize* size, const QSize& requestedSize)
 {
+    tSdkFrameHead FrameHead;
+    BYTE* pRawData;
+
+
+   // SDK.Camera.CameraPlay();
+    SDK.Camera.CameraGetImageBuffer(&FrameHead, &pRawData, 2000);
+    SDK.Camera.CameraImageProcess(pRawData, SDK.Camera.pFrameBuffer, &FrameHead);
+    SDK.Camera.CameraReleaseImageBuffer(pRawData);
+   // SDK.Camera.CameraPause();
+    qDebug() << "id " << id;
+
+    return QImage(SDK.Camera.pFrameBuffer, SDK.Camera.CameraInfo.sResolutionRange.iWidthMax, SDK.Camera.CameraInfo.sResolutionRange.iHeightMax, QImage::Format_BGR888);
+
+    
     return QImage("1.png");
 }

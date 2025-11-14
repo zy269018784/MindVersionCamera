@@ -4,7 +4,7 @@
 int MindVisionMain(int argc, char** argv);
 int main(int argc, char* argv[])
 {
-    return MindVisionMain(argc, argv);
+   // return MindVisionMain(argc, argv);
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;

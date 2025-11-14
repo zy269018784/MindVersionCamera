@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <QQuickImageProvider>
-#include "MindVersion/MindVisonCamera.h"
+#include "MindVersion/MindVisionSDK.h"
 class LiveImageProvider : public QQuickImageProvider
 {
 public:
@@ -9,5 +9,5 @@ public:
     QImage requestImage(const QString& id, QSize* size, const QSize& requestedSize) override;
 
 private:
-    MindVisonCamera Camera;
+    MindVisionSDK SDK;
 };
