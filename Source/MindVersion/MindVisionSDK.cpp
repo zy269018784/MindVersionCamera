@@ -53,9 +53,10 @@ MindVisionSDK::MindVisionSDK()
 
     // 手动曝光
     Camera.CameraSetAeState(FALSE);
-    
+
+    Camera.CameraSetAeTarget(200);
     // 曝光时间
-    Camera.CameraSetExposureTime(30000);
+    Camera.CameraSetExposureTime(328000);
 
     // 创建Framebuffer
     Camera.CreateFramebuffer();
