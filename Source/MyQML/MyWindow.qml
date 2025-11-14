@@ -10,14 +10,26 @@ Window {
     visible: true
     title: qsTr("压花机")
     
+	property int frameCount: 0
 	
 	Image {
 		width: parent.width - 400
 		height: parent.height
-		source: "image://live/camera1"  
+		source: "image://live/camera" + window.frameCount
 		cache: false
 		fillMode: Image.PreserveAspectFit
 	}
+	
+	Timer {
+        id: refreshTimer
+        interval: 33  
+        running: true
+        repeat: true
+        onTriggered: {
+            window.frameCount++
+			console.log("New frameCount:", window.frameCount)
+        }
+    }
 	
 	Button {
 		x: parent.width - 400
