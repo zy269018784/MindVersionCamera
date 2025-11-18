@@ -59,6 +59,10 @@ if (CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
 	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/Windows/MindVision/include/)
 	list (APPEND LINK_PATH      ${LIBRARY_PATH}/Windows/MindVision/lib/)
 	list (APPEND LIBRARYS		MVCAMSDK_X64)
+
+	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/Windows/VisionMaster/include/)
+	list (APPEND LINK_PATH      ${LIBRARY_PATH}/Windows/VisionMaster/lib/)
+	list (APPEND LIBRARYS		iMVS-6000PlatformSDK)
 elseif (CMAKE_HOST_SYSTEM_NAME MATCHES "Linux")
 
 endif()
