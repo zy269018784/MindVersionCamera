@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #[[
 	库路径
 #]]
-set (LIBRARY_PATH ${PROJECT_SOURCE_DIR}/../../../Library)
+set (LIBRARY_PATH ${PROJECT_SOURCE_DIR}/Library)
 set (SRC_PREFIX ${PROJECT_SOURCE_DIR}/Source)
 # 设置 UTF-8 编码（跨平台兼容）
 if (MSVC)
@@ -57,17 +57,19 @@ add_executable (${PROJECT_NAME}  ${SRC_LIST})
 list(APPEND INCLUDE_PATH ${SRC_PREFIX})
 list(APPEND LIBRARYS ${QT_LIBS})
 if (CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
-	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/Windows/HIK/include/)
-	list (APPEND LINK_PATH      ${LIBRARY_PATH}/Windows/HIK/lib/)
+	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/HIK/include/)
+	list (APPEND LINK_PATH      ${LIBRARY_PATH}/HIK/lib/)
 	list (APPEND LIBRARYS		MvCameraControl)
 
-	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/Windows/MindVision/include/)
-	list (APPEND LINK_PATH      ${LIBRARY_PATH}/Windows/MindVision/lib/)
+	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/MindVision/include/)
+	list (APPEND LINK_PATH      ${LIBRARY_PATH}/MindVision/lib/)
 	list (APPEND LIBRARYS		MVCAMSDK_X64)
 
-	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/Windows/VisionMaster/include/)
-	list (APPEND LINK_PATH      ${LIBRARY_PATH}/Windows/VisionMaster/lib/)
+	list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/VisionMaster/include/)
+	list (APPEND LINK_PATH      ${LIBRARY_PATH}/VisionMaster/lib/)
 	list (APPEND LIBRARYS		iMVS-6000PlatformSDK)
+	
+		list (APPEND INCLUDE_PATH   ${LIBRARY_PATH}/stb/include/)
 elseif (CMAKE_HOST_SYSTEM_NAME MATCHES "Linux")
 
 endif()

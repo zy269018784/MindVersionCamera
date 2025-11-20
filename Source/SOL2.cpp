@@ -2,6 +2,13 @@
 #include "VMException.h"
 #include "IVmProcedure.h"
 #include <iostream>
+
+/*
+    stb
+*/
+#define STBI_WINDOWS_UTF8
+#include <stb_image.h>
+#include <stb_image_write.h>
 using namespace VisionMasterSDK;
 using namespace VisionMasterSDK::VmSolution;
 using namespace VisionMasterSDK::VmProcedure;
@@ -120,17 +127,53 @@ int SOL2(void)
         pVmSol->RegisterCallBack(CallBackFunc, nullptr);
 
         /*
+            流程
+        */
+        IVmProcedure* pVmPrc = (IVmProcedure*)(*pVmSol)["流程1"];
+        /*
             流程回调
         */
-        ProEvent *m_pPrcEvent = new ProEvent();
-        IVmProcedure* pVmPrc = (IVmProcedure*)(*pVmSol)["流程1"];
-        pVmPrc->RegisterCallBackEvent(m_pPrcEvent, nullptr);
+        //ProEvent *m_pPrcEvent = new ProEvent();
+        
+        //pVmPrc->RegisterCallBackEvent(m_pPrcEvent, nullptr);
 
+        std::cout << "debug 1" << std::endl;
+        unsigned char *image = new unsigned char[3 * 4000 * 3000];
+       
+        ImageBaseData imageBaseData = { 0 };
+        imageBaseData.Width  = 4000;
+        imageBaseData.Height = 3000;
+        imageBaseData.DataLen = imageBaseData.Width * imageBaseData.Height;
+        imageBaseData.Pixelformat = MVD_PIXEL_RGB_RGB24_C3;
+        imageBaseData.ImageData = image;
+        
+        VisionMasterSDK::IoImage inputImage;
+        inputImage.stImage = imageBaseData;
+        //std::cout << "debug 2" << std::endl;
 
+        IMVSProcedureParams* pParam = pVmPrc->GetParamObj();
+        if (NULL != pParam)
+        {
+            std::cout << "debug 2" << std::endl;
+            pParam->SetInputImageV2("ImageData", &inputImage);
+            std::cout << "debug 3" << std::endl;
+        }
 
+        std::cout << "debug 3" << std::endl;
         //方案同步执行一次
         pVmSol->Run();
-
+        std::cout << "debug 4" << std::endl;
+        //通过流程对象接口获取流程结果对象，用于获取流程输出
+       //注意每次流程执行后，通过重新获取结果对象刷新其中输出数据
+       //该操作存在耗时，建议获取结果对象后，直接使用对象获取具体输出数据
+        IMVSProcedureResults* pRes = pVmPrc->GetResult();
+        if (NULL != pRes)
+        {
+            IoImage outputImage = pRes->GetOutputImageV2("ImageData0");
+            std::cout << "Width " << outputImage.stImage.Width << " Height " <<  outputImage.stImage.Height << std::endl;
+            stbi_write_png("sol.png", outputImage.stImage.Width, outputImage.stImage.Height, 3, outputImage.stImage.ImageData, 0);
+        }
+        std::cout << "debug 5" << std::endl;
    
         //关闭当前方案
         DestroySolutionInstance(pVmSol);
