@@ -12,7 +12,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #]]
 set (LIBRARY_PATH ${PROJECT_SOURCE_DIR}/../../../Library)
 set (SRC_PREFIX ${PROJECT_SOURCE_DIR}/Source)
-
+# 设置 UTF-8 编码（跨平台兼容）
+if (MSVC)
+	add_compile_options("/utf-8")
+else()
+    add_compile_options("-finput-charset=utf-8")
+endif()
 #[[
 	QT
 #]]

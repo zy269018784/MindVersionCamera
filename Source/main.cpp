@@ -3,9 +3,10 @@
 #include "GUI/LiveImageProvider.h"
 int MindVisionMain(int argc, char** argv);
 int SOL(void);
-
+int SOL2(void);
 int main(int argc, char* argv[])
 {
+    return SOL2();
    // return SOL();
    // return MindVisionMain(argc, argv);
     QGuiApplication app(argc, argv);
