@@ -6,7 +6,7 @@ int SOL(void);
 
 int main(int argc, char* argv[])
 {
-    return SOL();
+   // return SOL();
    // return MindVisionMain(argc, argv);
     QGuiApplication app(argc, argv);
 
