@@ -2,8 +2,11 @@
 #include <QQmlApplicationEngine>
 #include "GUI/LiveImageProvider.h"
 int MindVisionMain(int argc, char** argv);
+int SOL(void);
+
 int main(int argc, char* argv[])
 {
+    return SOL();
    // return MindVisionMain(argc, argv);
     QGuiApplication app(argc, argv);
 

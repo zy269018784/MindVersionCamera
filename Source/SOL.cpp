@@ -1,12 +1,12 @@
 ﻿#include "IVmSolution.h"
 #include "VMException.h"
 #include "IVmProcedure.h"
-
+#include <iostream>
 using namespace VisionMasterSDK;
 using namespace VisionMasterSDK::VmSolution;
 using namespace VisionMasterSDK::VmProcedure;
 
-int main(void)
+int SOL(void)
 {
     try
     {
@@ -17,7 +17,7 @@ int main(void)
         pVmSol = GetSolutionExistedInstance();
 
         //加载方案，仅支持绝对路径，编码格式UTF-8
-        pVmSol = LoadSolution("D:\\test.sol", "");
+        pVmSol = LoadSolution("C:\\1.sol", "");
         if (NULL == pVmSol) return IMVS_EC_NULL_PTR;
 
         //获取方案版本号 
@@ -40,22 +40,29 @@ int main(void)
 
         //获取方案所有模块信息
         ModuleInfoList* moduInfoList = pVmSol->GetAllModuleList();
+        for (int i = 0; i < moduInfoList->nNum; i++)
+        {
+           // moduInfoList->astModuleInfo[i].strModuleName;
+            std::cout << "name " << moduInfoList->astModuleInfo[i].strModuleName << std::endl;
+        }
 
-        //使用流程名称禁用流程，禁用后流程不参与方案运行
-        pVmSol->DisableProcedure("流程1");
+        std::cout << "moduInfoList->nNum " << moduInfoList->nNum << std::endl;
+        
+        ////使用流程名称禁用流程，禁用后流程不参与方案运行
+        //pVmSol->DisableProcedure("流程1");
 
-        //使用流程名称启用流程
-        pVmSol->EnableProcedure("流程1");
+        ////使用流程名称启用流程
+        //pVmSol->EnableProcedure("流程1");
 
-        //使用流程名称删除流程
-        pVmSol->DeleteOneProcedure("流程2");
+        ////使用流程名称删除流程
+        //pVmSol->DeleteOneProcedure("流程2");
 
-        //禁用方案所有流程/Group/模块回调，可提高运行效率，降低CPU资源依赖
-        //注意若需获取流程/Group/模块输出，还需单独启用对应流程/Group/模块的回调
+        ////禁用方案所有流程/Group/模块回调，可提高运行效率，降低CPU资源依赖
+        ////注意若需获取流程/Group/模块输出，还需单独启用对应流程/Group/模块的回调
         pVmSol->DisableModulesCallback();
         pVmPrc->EnableResultCallback();
 
-        //启用方案所有流程/Group/模块回调
+        ////启用方案所有流程/Group/模块回调
         pVmSol->EnableModulesCallback();
 
         //方案同步执行一次
@@ -64,17 +71,17 @@ int main(void)
         //设置连续执行时间间隔
         pVmSol->SetRunInterval(500);
 
-        //方案开始连续执行
-        pVmSol->Runing();
+        //方案开始执行一次
+        pVmSol->Run();
 
         //方案停止连续执行
         pVmSol->StopRun();
-
+   
         //保存当前方案
         pVmSol->SaveSolution();
 
         //方案另存为
-        pVmSol->SaveAsSolution("D:\\Test1.sol", "");
+        pVmSol->SaveAsSolution("C:\\Test1.sol", "");
 
         //关闭当前方案
         DestroySolutionInstance(pVmSol);
