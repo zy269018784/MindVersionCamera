@@ -1,4 +1,4 @@
-/***************************************************************************************************
+ï»¿/***************************************************************************************************
 * File:  MVD_ShapeParamDefine.h
 * Note:  Parameter and data struct definition of shape module in namespace VisionDesigner.
 *
@@ -10,9 +10,9 @@
 
 namespace VisionDesigner
 {
-    #define MVD_TEXT_CONTENT_MAX_LEN 4096 //ÎÄ±¾Í¼ĞÎÀàÄÚÈİ×î´ó³¤¶È
-    #define MVD_TEXT_FONT_FACE_SIZE 32   //ÎÄ±¾Í¼ĞÎÀà×ÖÌåÀàĞÍ×Ö·û´®×î´ó³¤¶È
-	#define MVD_SHAPE_NAME_MAX_LEN 64    // Í¼ĞÎÃû×î´ó³¤¶È£¬ºÍ½Ó¿ÚÒªÒ»ÖÂ
+    #define MVD_TEXT_CONTENT_MAX_LEN 4096 //æ–‡æœ¬å›¾å½¢ç±»å†…å®¹æœ€å¤§é•¿åº¦
+    #define MVD_TEXT_FONT_FACE_SIZE 32   //æ–‡æœ¬å›¾å½¢ç±»å­—ä½“ç±»å‹å­—ç¬¦ä¸²æœ€å¤§é•¿åº¦
+	#define MVD_SHAPE_NAME_MAX_LEN 64    // å›¾å½¢åæœ€å¤§é•¿åº¦ï¼Œå’Œæ¥å£è¦ä¸€è‡´
 
     /** @struct MVD_SHAPE_TYPE
      *  @brief  Shape type designed in this module.
@@ -159,87 +159,87 @@ namespace VisionDesigner
 
     /*
     *  @struct   MVD_TEXT_POSITION_TYPE
-    *  @brief    ÎÄ±¾Í¼ĞÎÎ»ÖÃÀàĞÍ
+    *  @brief    æ–‡æœ¬å›¾å½¢ä½ç½®ç±»å‹
     */
     typedef enum _MVD_TEXT_POSITION_TYPE_
     {
-        MVD_TP_UNDEFINED=0,        ///< Î´¶¨ÒåÎÄ±¾Í¼ĞÎÎ»ÖÃÀàĞÍ
-        MVD_TP_TOPLEFT=1,          ///< ×óÉÏ½Ç
-        MVD_TP_TOPMIDDLE=2,        ///< ÖĞÉÏ
-        MVD_TP_TOPRIGHT=3,         ///< ÓÒÉÏ½Ç
-        MVD_TP_MIDDLELEFT=4,       ///< ×óÖĞ
-        MVD_TP_CENTER=5,           ///< ÖĞĞÄ
-        MVD_TP_MIDDLERIGHT=6,      ///< ÓÒÖĞ
-        MVD_TP_BOTTOMLEFT=7,       ///< ×óÏÂ½Ç
-        MVD_TP_BOTTOMMIDDLE=8,     ///< ÖĞÏÂ
-        MVD_TP_BOTTOMRIGHT=9,      ///< ÓÒÏÂ½Ç
+        MVD_TP_UNDEFINED=0,        ///< æœªå®šä¹‰æ–‡æœ¬å›¾å½¢ä½ç½®ç±»å‹
+        MVD_TP_TOPLEFT=1,          ///< å·¦ä¸Šè§’
+        MVD_TP_TOPMIDDLE=2,        ///< ä¸­ä¸Š
+        MVD_TP_TOPRIGHT=3,         ///< å³ä¸Šè§’
+        MVD_TP_MIDDLELEFT=4,       ///< å·¦ä¸­
+        MVD_TP_CENTER=5,           ///< ä¸­å¿ƒ
+        MVD_TP_MIDDLERIGHT=6,      ///< å³ä¸­
+        MVD_TP_BOTTOMLEFT=7,       ///< å·¦ä¸‹è§’
+        MVD_TP_BOTTOMMIDDLE=8,     ///< ä¸­ä¸‹
+        MVD_TP_BOTTOMRIGHT=9,      ///< å³ä¸‹è§’
     }MVD_TEXT_POSITION_TYPE;
 
 
     /*
     *  @struct   MVD_TEXT_POSITION
-    *  @brief    ÎÄ±¾Í¼ĞÎÎ»ÖÃ£¬Ê¾Àı£ºfX=100,fY=100,enType=MVD_TP_TOPRIGHT,±íÃ÷ÎÄ±¾×óÉÏ½ÇµÄ×ø±êÎª(100,100)
+    *  @brief    æ–‡æœ¬å›¾å½¢ä½ç½®ï¼Œç¤ºä¾‹ï¼šfX=100,fY=100,enType=MVD_TP_TOPRIGHT,è¡¨æ˜æ–‡æœ¬å·¦ä¸Šè§’çš„åæ ‡ä¸º(100,100)
     */
     typedef struct _MVD_TEXT_POSITION_
     {
-        float fX;                           ///< ×ø±êX
-        float fY;                           ///< ×ø±êY
-        MVD_TEXT_POSITION_TYPE enType;      ///< ÎÄ±¾Í¼ĞÎÎ»ÖÃÀàĞÍ
+        float fX;                           ///< åæ ‡X
+        float fY;                           ///< åæ ‡Y
+        MVD_TEXT_POSITION_TYPE enType;      ///< æ–‡æœ¬å›¾å½¢ä½ç½®ç±»å‹
     }MVD_TEXT_POSITION;
 
 	/*
     *  @struct   MVD_TEXT_POSITION_TYPE
-    *  @brief    Ïß¶ÎÆğµãÖÕµã¼ıÍ·ÀàĞÍ
+    *  @brief    çº¿æ®µèµ·ç‚¹ç»ˆç‚¹ç®­å¤´ç±»å‹
     */
     typedef enum _MVD_LINE_ARROW_TYPE_
 	{
-		MVD_LINE_ARROW_NONE  = 0,   //²»»­¼ıÍ·
-		MVD_LINE_ARROW_START = 1,   //Ö»ÆğÊ¼µã»æÖÆ
-		MVD_LINE_ARROW_END   = 2,   //Ö»ÖÕÖ¹µã»æÖÆ
-		MVD_LINE_ARROW_BOTH  = 3,   //ÆğÊ¼¡¢ÖÕÖ¹µã¾ù»æÖÆ
+		MVD_LINE_ARROW_NONE  = 0,   //ä¸ç”»ç®­å¤´
+		MVD_LINE_ARROW_START = 1,   //åªèµ·å§‹ç‚¹ç»˜åˆ¶
+		MVD_LINE_ARROW_END   = 2,   //åªç»ˆæ­¢ç‚¹ç»˜åˆ¶
+		MVD_LINE_ARROW_BOTH  = 3,   //èµ·å§‹ã€ç»ˆæ­¢ç‚¹å‡ç»˜åˆ¶
 	}MVD_LINE_ARROW_TYPE;
 
 	/*
     *  @struct   MVD_TEXT_POSITION_TYPE
-    *  @brief    ¼ıÍ··½Ïò
+    *  @brief    ç®­å¤´æ–¹å‘
     */
     typedef enum _MVD_ARROW_DIRECTION_
 	{
-		MVD_ARROW_NONE = 0,			//Ã»ÓĞ¼ıÍ·
-		MVD_ARROW_VERTICAL = 1,        //´¹Ö±·½Ïò¼ıÍ·
-		MVD_ARROW_HORIZONTAL = 2,        //Ë®Æ½·½Ïò¼ıÍ·
+		MVD_ARROW_NONE = 0,			//æ²¡æœ‰ç®­å¤´
+		MVD_ARROW_VERTICAL = 1,        //å‚ç›´æ–¹å‘ç®­å¤´
+		MVD_ARROW_HORIZONTAL = 2,        //æ°´å¹³æ–¹å‘ç®­å¤´
 	}MVD_ARROW_DIRECTION;
 
 	/*
     *  @struct   MVD_LINE_THROUGHLINE_TYPE
-    *  @brief    ¹á´©ÏßÏÔÊ¾ÀàĞÍ
+    *  @brief    è´¯ç©¿çº¿æ˜¾ç¤ºç±»å‹
     */
     typedef enum _MVD_LINE_THROUGH_TYPE_
 	{
-		MVD_LINE_THROUGH_NONE  = 0,   //²»ÏÔÊ¾¹á´©Ïß
-		MVD_LINE_THROUGH_SHOW = 1,    //ÏÔÊ¾¹á´©Ïß
+		MVD_LINE_THROUGH_NONE  = 0,   //ä¸æ˜¾ç¤ºè´¯ç©¿çº¿
+		MVD_LINE_THROUGH_SHOW = 1,    //æ˜¾ç¤ºè´¯ç©¿çº¿
 	}MVD_LINE_THROUGH_TYPE;
 
 	/*
     *  @enum   MVD_TEXT_ALIGNMENT
-    *  @brief    ÎÄ±¾Í¼ĞÎ£¬¶àĞĞÎÄ±¾¶ÔÆëÊôĞÔ
+    *  @brief    æ–‡æœ¬å›¾å½¢ï¼Œå¤šè¡Œæ–‡æœ¬å¯¹é½å±æ€§
     */
     typedef enum _MVD_TEXT_ALIGNMENT_
     {
-		MVD_TEXT_ALIGN_LEFT     = 0,	///< ×ó¶ÔÆë
-		MVD_TEXT_ALIGN_CENTER   = 1,	///< ¾ÓÖĞ¶ÔÆë
-		MVD_TEXT_ALIGN_RIGHT    = 2		///< ÓÒ¶ÔÆë
+		MVD_TEXT_ALIGN_LEFT     = 0,	///< å·¦å¯¹é½
+		MVD_TEXT_ALIGN_CENTER   = 1,	///< å±…ä¸­å¯¹é½
+		MVD_TEXT_ALIGN_RIGHT    = 2		///< å³å¯¹é½
     }MVD_TEXT_ALIGNMENT;
 
 		/*
     *  @struct   MVD_ARROW_DIRECTION
-    *  @brief    ÉÈ»·¿¨³ß¼ıÍ··½Ïò
+    *  @brief    æ‰‡ç¯å¡å°ºç®­å¤´æ–¹å‘
     */
     typedef enum _MVD_SECTORCALIPER_ARROW_DIRECTION_
 	{
-		MVD_SECTORCALIPER_ARROW_NONE = 0,			//Ã»ÓĞ¼ıÍ·
-		MVD_SECTORCALIPER_ARROW_INNER_TO_OUTER = 1,        //ÓÉÄÚÏòÍâ
-		MVD_SECTORCALIPER_ARROW_OUTER_TO_INNER = 2,        //ÓÉÍâÏòÄÚ
+		MVD_SECTORCALIPER_ARROW_NONE = 0,			//æ²¡æœ‰ç®­å¤´
+		MVD_SECTORCALIPER_ARROW_INNER_TO_OUTER = 1,        //ç”±å†…å‘å¤–
+		MVD_SECTORCALIPER_ARROW_OUTER_TO_INNER = 2,        //ç”±å¤–å‘å†…
 	}MVD_SECTORCALIPER_ARROW_DIRECTION;
 
 }

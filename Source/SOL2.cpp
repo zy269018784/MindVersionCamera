@@ -1,6 +1,7 @@
 ﻿#include "IVmSolution.h"
 #include "VMException.h"
 #include "IVmProcedure.h"
+#include "IVmAffineTransform.h"
 #include <iostream>
 
 /*
@@ -9,11 +10,15 @@
 #define STBI_WINDOWS_UTF8
 #include <stb_image.h>
 #include <stb_image_write.h>
+
+
 using namespace VisionMasterSDK;
 using namespace VisionMasterSDK::VmSolution;
 using namespace VisionMasterSDK::VmProcedure;
+using namespace VisionMasterSDK::IMVSAffineTransformModu;
 int __stdcall CallBackFunc(OUT OutputPlatformInfo* const pstOutputInfo, IN void* const pUser)
 {
+    return 0;
     std::cout << "CallBackFunc " << pstOutputInfo->nInfoType << std::endl;
     if (IMVS_ENUM_CTRLC_OUTPUT_PLATFORM_INFO_MODULE_RESULT == pstOutputInfo->nInfoType)
     {
@@ -124,19 +129,22 @@ int SOL2(void)
         */
         pVmSol->DisableModulesCallback(); 
         pVmSol->EnableModulesCallback();
-        pVmSol->RegisterCallBack(CallBackFunc, nullptr);
+       // pVmSol->RegisterCallBack(CallBackFunc, nullptr);
 
         /*
             流程
         */
         IVmProcedure* pVmPrc = (IVmProcedure*)(*pVmSol)["流程1"];
+        IMVSAffineTransformModuTool* Tool = (IMVSAffineTransformModuTool*)(*pVmSol)["流程1.仿射变换1"];
+        auto Params = Tool->GetParamObj();
+        std::cout << "MirrorOrientation " << Params->MirrorOrientation << std::endl;
         /*
             流程回调
         */
         //ProEvent *m_pPrcEvent = new ProEvent();
         
         //pVmPrc->RegisterCallBackEvent(m_pPrcEvent, nullptr);
-
+#if 0
         std::cout << "debug 1" << std::endl;
         unsigned char *image = new unsigned char[3 * 4000 * 3000];
        
@@ -154,25 +162,37 @@ int SOL2(void)
         IMVSProcedureParams* pParam = pVmPrc->GetParamObj();
         if (NULL != pParam)
         {
-            std::cout << "debug 2" << std::endl;
-            pParam->SetInputImageV2("ImageData", &inputImage);
-            std::cout << "debug 3" << std::endl;
-        }
+            auto allInputName = pParam->GetAllInputNameInfo();
 
+            std::cout << "nNameNum " << allInputName.nNameNum << std::endl;
+            std::cout << "debug 2-1" << std::endl;
+            pParam->SetInputImageV2("ImageData", &inputImage);
+            std::cout << "debug 3-1" << std::endl;
+        }
+#endif
         std::cout << "debug 3" << std::endl;
         //方案同步执行一次
-        pVmSol->Run();
-        std::cout << "debug 4" << std::endl;
+       // pVmSol->Run();
+       pVmPrc->Run();
         //通过流程对象接口获取流程结果对象，用于获取流程输出
        //注意每次流程执行后，通过重新获取结果对象刷新其中输出数据
        //该操作存在耗时，建议获取结果对象后，直接使用对象获取具体输出数据
         IMVSProcedureResults* pRes = pVmPrc->GetResult();
         if (NULL != pRes)
         {
-            IoImage outputImage = pRes->GetOutputImageV2("ImageData0");
-            std::cout << "Width " << outputImage.stImage.Width << " Height " <<  outputImage.stImage.Height << std::endl;
-            stbi_write_png("sol.png", outputImage.stImage.Width, outputImage.stImage.Height, 3, outputImage.stImage.ImageData, 0);
+            std::cout << "IMVSProcedureResults " << pRes->GetErrorCode() << std::endl;
+            AffineTransformResults *ATR = Tool->GetResult();
+            ImageBaseData IBD = ATR->GetOutputImage();
+            std::cout << "AffineTransformResults " 
+                << ATR->GetErrorCode() << " "
+                << IBD.Width << " " << IBD.Height << " "
+                << std::endl;
+            stbi_write_png("sol.png", IBD.Width, IBD.Height, 3, IBD.ImageData, 0);
+            //IoImage outputImage = pRes->GetOutputImageV2("ImageData");
+            //std::cout << "Width " << outputImage.stImage.Width << " Height " <<  outputImage.stImage.Height << std::endl;
+            //stbi_write_png("sol.png", outputImage.stImage.Width, outputImage.stImage.Height, 3, outputImage.stImage.ImageData, 0);
         }
+
         std::cout << "debug 5" << std::endl;
    
         //关闭当前方案

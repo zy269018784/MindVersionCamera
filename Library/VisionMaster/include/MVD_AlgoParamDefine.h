@@ -1,4 +1,4 @@
-/***************************************************************************************************
+ï»¿/***************************************************************************************************
 * File:  MVD_AlgoParamDefine.h
 * Note:  Algorithm-dependent common data struct definition in namespace VisionDesigner.
 *
@@ -14,7 +14,7 @@ namespace VisionDesigner
 {
     typedef long long MVD_HANDLE;
     /************************************************************************/
-    /*                               ±ê¶¨Àà                                */
+    /*                               æ ‡å®šç±»                                */
     /************************************************************************/
     /** @struct _MVD_CALIBBOARD_TYPE__
      *  @brief  Calibboard type - enum type
@@ -23,12 +23,12 @@ namespace VisionDesigner
     {
         MVD_CALIBBOARD_CHECKER = 1, // Checker Board
         MVD_CALIBBOARD_CIRCLE = 2, // Circle Board
-        MVD_CALIBBOARD_HKA_SPARSE_I = 7,   // º£¿µIĞÍ±ê¶¨°å
-        MVD_CALIBBOARD_HKA_DENSE_II = 6,   // º£¿µIIĞÍ±ê¶¨°å
-        MVD_CALIBBOARD_HKA_DENSE_II_V2     = 8, // º£¿µIIĞÍÀ©Õ¹ĞÍ±ê¶¨°å(³íÃÜĞÍ)
-        MVD_CALIBBOARD_HKA_SPARSE_I_V2     = 9, // º£¿µIĞÍÀ©Õ¹ĞÍ±ê¶¨°å(Ï¡ÊèĞÍ)
-        MVD_CALIBBOARD_RSCODE_SIGN_FOUR = 3, // º£¿µIĞÍ±ê¶¨°å(V3.3ºó¶¨Òå¸üĞÂÎªMVD_CALIBBOARD_TYPE_HKA_SPARSE_I)
-        MVD_CALIBBOARD_RSCODE_SIGN = 4 // º£¿µIIĞÍ±ê¶¨°å(V3.3ºó¶¨Òå¸üĞÂÎªMVD_CALIBBOARD_TYPE_HKA_DENSE_II)
+        MVD_CALIBBOARD_HKA_SPARSE_I = 7,   // æµ·åº·Iå‹æ ‡å®šæ¿
+        MVD_CALIBBOARD_HKA_DENSE_II = 6,   // æµ·åº·IIå‹æ ‡å®šæ¿
+        MVD_CALIBBOARD_HKA_DENSE_II_V2     = 8, // æµ·åº·IIå‹æ‰©å±•å‹æ ‡å®šæ¿(ç¨ å¯†å‹)
+        MVD_CALIBBOARD_HKA_SPARSE_I_V2     = 9, // æµ·åº·Iå‹æ‰©å±•å‹æ ‡å®šæ¿(ç¨€ç–å‹)
+        MVD_CALIBBOARD_RSCODE_SIGN_FOUR = 3, // æµ·åº·Iå‹æ ‡å®šæ¿(V3.3åå®šä¹‰æ›´æ–°ä¸ºMVD_CALIBBOARD_TYPE_HKA_SPARSE_I)
+        MVD_CALIBBOARD_RSCODE_SIGN = 4 // æµ·åº·IIå‹æ ‡å®šæ¿(V3.3åå®šä¹‰æ›´æ–°ä¸ºMVD_CALIBBOARD_TYPE_HKA_DENSE_II)
     };
 
     /** @struct _MVD_CALIBBOARD_IMAGE_TYPE__
@@ -36,8 +36,8 @@ namespace VisionDesigner
      */
     enum _MVD_CALIBBOARD_IMAGE_TYPE__
     {
-        MVD_CALIBBOARD_OFFSET_IMAGE = 1, // Æ½ÒÆÍ¼Ïñ
-        MVD_CALIBBOARD_ROTATE_IMAGE = 2 // Ğı×ªÍ¼Ïñ
+        MVD_CALIBBOARD_OFFSET_IMAGE = 1, // å¹³ç§»å›¾åƒ
+        MVD_CALIBBOARD_ROTATE_IMAGE = 2 // æ—‹è½¬å›¾åƒ
     };
 
     /** @struct _MVD_CALIBBOARD_COORDINATE_MODE__
@@ -76,15 +76,15 @@ namespace VisionDesigner
         MVD_MAP_CALIB_MOVE_TYPE_ROTATE = 2,
     };
     /************************************************************************/
-    /*                               Æ´½ÓÀà                                */
+    /*                               æ‹¼æ¥ç±»                                */
     /************************************************************************/
     /** @struct _MVD_STITCH_CHECKERBOARD_SUBPIXEL_WIN_AUTO_TYPE_
     *  @brief  subpixel window auto type - enum type
     */
     enum _MVD_STITCH_CHECKERBOARD_SUBPIXEL_WIN_AUTO_TYPE__
     {
-        MVD_STITCH_CHECKERBOARD_SUBP_WIN_AUTO = 1, // ×ÔÊÊÓ¦
-        MVD_STITCH_CHECKERBOARD_SUBP_WIN_MANUAL = 2 // ÉèÖÃÖµ
+        MVD_STITCH_CHECKERBOARD_SUBP_WIN_AUTO = 1, // è‡ªé€‚åº”
+        MVD_STITCH_CHECKERBOARD_SUBP_WIN_MANUAL = 2 // è®¾ç½®å€¼
     };
 
     /** @struct _MVD_STITCH_PATTERN_CREATE_PARAM__
@@ -92,15 +92,15 @@ namespace VisionDesigner
     */
     struct _MVD_STITCH_PATTERN_CREATE_PARAM__
     {
-        bool bFilterFlag; // ÖĞÖµÂË²¨±ê¼Ç£¬Ä¬ÈÏÖµtrue
-        _MVD_STITCH_CHECKERBOARD_SUBPIXEL_WIN_AUTO_TYPE__ enSubPixelWinMode; // ÑÇÏñËØ´°¿ÚÄ£Ê½,Ä¬ÈÏÖµ1
-        int nSubPixelWinSize; // ÑÇÏñËØ´°¿Ú´óĞ¡[3,100], Ä¬ÈÏÖµ7
-        int nGrayContrast; // »Ò¶È¶Ô±È¶È[1,255], Ä¬ÈÏÖµ15
-        int nReserved[8]; // ±£Áô×Ö½Ú
+        bool bFilterFlag; // ä¸­å€¼æ»¤æ³¢æ ‡è®°ï¼Œé»˜è®¤å€¼true
+        _MVD_STITCH_CHECKERBOARD_SUBPIXEL_WIN_AUTO_TYPE__ enSubPixelWinMode; // äºšåƒç´ çª—å£æ¨¡å¼,é»˜è®¤å€¼1
+        int nSubPixelWinSize; // äºšåƒç´ çª—å£å¤§å°[3,100], é»˜è®¤å€¼7
+        int nGrayContrast; // ç°åº¦å¯¹æ¯”åº¦[1,255], é»˜è®¤å€¼15
+        int nReserved[8]; // ä¿ç•™å­—èŠ‚
     };
 
     /************************************************************************/
-    /*                               ¶¨Î»Àà                                */
+    /*                               å®šä½ç±»                                */
     /************************************************************************/
     /** @enum  _MVD_EDGEPOINT_STATUS__
      *  @brief Find status of the edge point
@@ -127,14 +127,14 @@ namespace VisionDesigner
     */
     enum _MVD_EDGE_POLARITY_EX__
     {
-        MVD_EDGE_POLARITY_DARK_TO_BRIGHT_EX = 0x0001,    // ÓÉºÚµ½°×
-        MVD_EDGE_POLARITY_BRIGHT_TO_DARK_EX = 0x0002,    // ÓÉ°×µ½ºÚ
-        MVD_EDGE_POLARITY_MIXED_EX = 0x0003,     // ÓÉºÚµ½°× & ÓÉ°×µ½ºÚ(Í¬Ò»ÌõÏß¶ÎÖĞµã¼¯ÓĞÁ½ÖÖ¼«ĞÔµã)
-        MVD_EDGE_POLARITY_EITHER_EX = 0x0004     // ÓÉºÚµ½°× | ÓÉ°×µ½ºÚ(Í¬Ò»ÌõÏß¶ÎÖĞµã¼¯ÓĞÒ»ÖÖ¼«ĞÔµã)
+        MVD_EDGE_POLARITY_DARK_TO_BRIGHT_EX = 0x0001,    // ç”±é»‘åˆ°ç™½
+        MVD_EDGE_POLARITY_BRIGHT_TO_DARK_EX = 0x0002,    // ç”±ç™½åˆ°é»‘
+        MVD_EDGE_POLARITY_MIXED_EX = 0x0003,     // ç”±é»‘åˆ°ç™½ & ç”±ç™½åˆ°é»‘(åŒä¸€æ¡çº¿æ®µä¸­ç‚¹é›†æœ‰ä¸¤ç§ææ€§ç‚¹)
+        MVD_EDGE_POLARITY_EITHER_EX = 0x0004     // ç”±é»‘åˆ°ç™½ | ç”±ç™½åˆ°é»‘(åŒä¸€æ¡çº¿æ®µä¸­ç‚¹é›†æœ‰ä¸€ç§ææ€§ç‚¹)
     };
 
     /** @enum  _MVD_POSITION__
-     *  @brief ·½Î»
+     *  @brief æ–¹ä½
      */
     enum _MVD_POSITION__
     {
@@ -184,8 +184,8 @@ namespace VisionDesigner
     */
     enum _MVD_MARKFIND_ROI_TYPE__
     {
-        MVD_MARK_TYPE_CROSS = 0x0000,  // ¿ÕĞÄÊ®×Ö
-        MVD_MARK_TYPE_RECT = 0x0001,  // ¿ÕĞÄ¾ØĞÎ
+        MVD_MARK_TYPE_CROSS = 0x0000,  // ç©ºå¿ƒåå­—
+        MVD_MARK_TYPE_RECT = 0x0001,  // ç©ºå¿ƒçŸ©å½¢
     };
 
     /** @struct _MVD_MARK_WEIGHT_TYPE__
@@ -193,9 +193,9 @@ namespace VisionDesigner
     */
     enum _MVD_MARKFIND_WEIGHT_TYPE__
     {
-        MVD_MARK_WEIGHT_TYPE_IMPORTANT = 0x0000,  // ÖØÒª
-        MVD_MARK_WEIGHT_TYPE_COMMON = 0x0001,  // Ò»°ã
-        MVD_MARK_WEIGHT_TYPE_WEAK = 0x0002,  // Èõ
+        MVD_MARK_WEIGHT_TYPE_IMPORTANT = 0x0000,  // é‡è¦
+        MVD_MARK_WEIGHT_TYPE_COMMON = 0x0001,  // ä¸€èˆ¬
+        MVD_MARK_WEIGHT_TYPE_WEAK = 0x0002,  // å¼±
     };
 
     /** @struct _MVD_MARK_PAT_TYPE__
@@ -203,8 +203,8 @@ namespace VisionDesigner
     */
     enum _MVD_MARKFIND_PAT_TYPE__
     {
-        MVD_MARK_PAT_TYPE_FAST = 0x0000,  // ¿ìËÙÌØÕ÷Æ¥Åä
-        MVD_MARK_PAT_TYPE_HP = 0x0001,    // ¸ß¾«¶ÈÌØÕ÷Æ¥Åä
+        MVD_MARK_PAT_TYPE_FAST = 0x0000,  // å¿«é€Ÿç‰¹å¾åŒ¹é…
+        MVD_MARK_PAT_TYPE_HP = 0x0001,    // é«˜ç²¾åº¦ç‰¹å¾åŒ¹é…
     };
 
         /** @struct _MVD_PATMATCH_OPTIMIZE_FLAG_TYPE__
@@ -212,8 +212,8 @@ namespace VisionDesigner
     */
     enum _MVD_PATMATCH_OPTIMIZE_FLAG_TYPE__
     {
-        MVD_PATMATCH_OPTIMIZE_NONE = 0,     //µ¼³öÄ¬ÈÏÄ£°å
-        MVD_PATMATCH_OPTIMIZE_IMG  = 1,     //µ¼³öÄ£°å²»º¬Ô­Í¼
+        MVD_PATMATCH_OPTIMIZE_NONE = 0,     //å¯¼å‡ºé»˜è®¤æ¨¡æ¿
+        MVD_PATMATCH_OPTIMIZE_IMG  = 1,     //å¯¼å‡ºæ¨¡æ¿ä¸å«åŸå›¾
     };
 
     /** @struct _MVD_BOXROIFIND_PROC_TYPE__
@@ -221,13 +221,13 @@ namespace VisionDesigner
     */
     enum _MVD_BOXROIFIND_PROC_TYPE__
     {
-        MVD_BOXROI_PROC_TYPE_LINE = 0x0000,           // ¼ì²âÖ±Ïß
-        MVD_BOXROI_PROC_TYPE_DISTANCE = 0x0001,       // ¼ì²âÁ½ÌõÖ±ÏßµÄ¾àÀë
+        MVD_BOXROI_PROC_TYPE_LINE = 0x0000,           // æ£€æµ‹ç›´çº¿
+        MVD_BOXROI_PROC_TYPE_DISTANCE = 0x0001,       // æ£€æµ‹ä¸¤æ¡ç›´çº¿çš„è·ç¦»
     };
 
 
     /************************************************************************/
-    /*                               ²âÁ¿Àà                                */
+    /*                               æµ‹é‡ç±»                                */
     /************************************************************************/
     /** @enum  _MVD_MEASURE_C2C_TYPES__
      *  @brief Positional relationship between circle and circle
@@ -244,12 +244,12 @@ namespace VisionDesigner
 
 	enum _MVD_NORMALIZE_ANGLE_TYPE_
 	{
-		MVD_NORMALIZE_ANGLE_TYPE_90 = 0x00000000,     // ¹éÒ»»¯½Ç¶È·¶Î§¡¾-90£¬90¡¿
-		MVD_NORMALIZE_ANGLE_TYPE_180 = 0x00000001,     // ¹éÒ»»¯½Ç¶È·¶Î§¡¾-180£¬180¡¿
+		MVD_NORMALIZE_ANGLE_TYPE_90 = 0x00000000,     // å½’ä¸€åŒ–è§’åº¦èŒƒå›´ã€-90ï¼Œ90ã€‘
+		MVD_NORMALIZE_ANGLE_TYPE_180 = 0x00000001,     // å½’ä¸€åŒ–è§’åº¦èŒƒå›´ã€-180ï¼Œ180ã€‘
 	};
 
     /************************************************************************/
-    /*                             Ô¤´¦ÀíÀà                             */
+    /*                             é¢„å¤„ç†ç±»                             */
     /************************************************************************/
     /** @enum _MVD_IMGFIX_MODE__
      *  @brief  Image Fix Mode
@@ -282,9 +282,9 @@ namespace VisionDesigner
     */
     enum _MVD_PREPRO_FRAME_MEAN_PROC_MODE
     {
-        MVD_FRAME_MEAN_TRAIN_STEP = 1,   // µş¼Ó
-        MVD_FRAME_MEAN_CALCU_STEP = 2,   // Ìø¹ı
-        MVD_FRAME_MEAN_ABORT_STEP = 3    // ÖØÖÃ
+        MVD_FRAME_MEAN_TRAIN_STEP = 1,   // å åŠ 
+        MVD_FRAME_MEAN_CALCU_STEP = 2,   // è·³è¿‡
+        MVD_FRAME_MEAN_ABORT_STEP = 3    // é‡ç½®
     };
 
     /** @struct _MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE__
@@ -292,8 +292,8 @@ namespace VisionDesigner
      */
 	enum _MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE__
 	{
-		MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE_DESCEND = 1,  // ½µĞò,ÓÅÏÈ¼¶´Ó¸ßµ½µÍ
-		MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE_AESCEND = 2,  // ÉıĞò£¬ÓÅÏÈ¼¶´ÓµÍµ½¸ß
+		MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE_DESCEND = 1,  // é™åº,ä¼˜å…ˆçº§ä»é«˜åˆ°ä½
+		MVD_PREPRO_FLAW_PRIORITY_SORT_TYPE_AESCEND = 2,  // å‡åºï¼Œä¼˜å…ˆçº§ä»ä½åˆ°é«˜
 	};
 
     /** @struct _MVD_PREPRO_BOX_MERGE_TYPE__
@@ -301,9 +301,9 @@ namespace VisionDesigner
      */
 	enum _MVD_PREPRO_BOX_MERGE_TYPE__
 	{
-		MVD_PREPRO_BOX_MERGE_TYPE_FLAW_PRIORITY = 1,  // °´È±ÏİÓÅÏÈ¼¶ÈÚºÏ£¨ĞèÊäÈëbox_label¼°flaw_priority£©
-		MVD_PREPRO_BOX_MERGE_TYPE_BOX_LABEL     = 2,  // °´È±ÏİÀà±ğÈÚºÏ£¨ĞèÊäÈëbox_label£¬²»ĞèÒªÊäÈëflaw_priority£©
-		MVD_PREPRO_BOX_MERGE_TYPE_NO_BOX_LABEL  = 3,  // ÎŞÈ±ÏİÀà±ğÈÚºÏ£¨²»ĞèÒªÊäÈëbox_label¼°flaw_priority£©
+		MVD_PREPRO_BOX_MERGE_TYPE_FLAW_PRIORITY = 1,  // æŒ‰ç¼ºé™·ä¼˜å…ˆçº§èåˆï¼ˆéœ€è¾“å…¥box_labelåŠflaw_priorityï¼‰
+		MVD_PREPRO_BOX_MERGE_TYPE_BOX_LABEL     = 2,  // æŒ‰ç¼ºé™·ç±»åˆ«èåˆï¼ˆéœ€è¾“å…¥box_labelï¼Œä¸éœ€è¦è¾“å…¥flaw_priorityï¼‰
+		MVD_PREPRO_BOX_MERGE_TYPE_NO_BOX_LABEL  = 3,  // æ— ç¼ºé™·ç±»åˆ«èåˆï¼ˆä¸éœ€è¦è¾“å…¥box_labelåŠflaw_priorityï¼‰
 	};
 
 	/** @struct _MVD_REGION_TYPE__
@@ -311,15 +311,15 @@ namespace VisionDesigner
      */
 	enum _MVD_REGION_TYPE__
 	{
-		MVD_REGION_TYPE_ROI = 0 ,    //¼ì²âÇøÓò
-		MVD_REGION_TYPE_MASK = 1 ,   //ÆÁ±ÎÇøÓò
-		MVD_REGION_TYPE_ENHANCE = 2 ,//ÔöÇ¿ÇøÓò
+		MVD_REGION_TYPE_ROI = 0 ,    //æ£€æµ‹åŒºåŸŸ
+		MVD_REGION_TYPE_MASK = 1 ,   //å±è”½åŒºåŸŸ
+		MVD_REGION_TYPE_ENHANCE = 2 ,//å¢å¼ºåŒºåŸŸ
 	};
 
 
 
     /************************************************************************/
-    /*                              Ê¶±ğÀà                             */
+    /*                              è¯†åˆ«ç±»                             */
     /************************************************************************/
     /** @enum _MVD_1DCODE_TYPE__
      *  @brief  1D Code Type - enum type
@@ -344,9 +344,9 @@ namespace VisionDesigner
      */
     enum _MVD_TDCODE_TYPE__
     {
-        MVD_2DCODE_NONE = 0, // ÎŞ¿ÉÊ¶±ğÌõÂë
-        MVD_2DCODE_DM = 1, // DMÂë
-        MVD_2DCODE_QR = 2, // QRÂë
+        MVD_2DCODE_NONE = 0, // æ— å¯è¯†åˆ«æ¡ç 
+        MVD_2DCODE_DM = 1, // DMç 
+        MVD_2DCODE_QR = 2, // QRç 
     };
 
     /** @enum _MVD_SYMBOL_VERIFY_STANDARD__
@@ -354,9 +354,9 @@ namespace VisionDesigner
     */
     enum _MVD_SYMBOL_VERIFY_STANDARD__
     {
-        MVD_SYMBOL_VERIFY_ISO_STANDARD_15415 = 1,         // iso 15415±ê×¼
-        MVD_SYMBOL_VERIFY_ISO_STANDARD_29158 = 2,          // iso 29158±ê×¼
-        MVD_SYMBOL_VERIFY_ISO_STANDARD_15416 = 3,         // iso 15416±ê×¼
+        MVD_SYMBOL_VERIFY_ISO_STANDARD_15415 = 1,         // iso 15415æ ‡å‡†
+        MVD_SYMBOL_VERIFY_ISO_STANDARD_29158 = 2,          // iso 29158æ ‡å‡†
+        MVD_SYMBOL_VERIFY_ISO_STANDARD_15416 = 3,         // iso 15416æ ‡å‡†
     };
 
     /** @enum _MVD_SYMBOL_VERIFY_LABEL__
@@ -364,85 +364,85 @@ namespace VisionDesigner
     */
     enum _MVD_SYMBOL_VERIFY_LABEL__
     {
-        MVD_SYMBOL_VERIFY_LABEL_STANDARD = 1,         // ÂëÆÀ¼¶ÍêÈ«°´ÕÕiso±ê×¼
-        MVD_SYMBOL_VERIFY_LABEL_CUSTOM = 2,         // ²¿·ÖÖ¸±ê²ÉÓÃ¶¨ÖÆ(DLÂëÆÀ¼¶ÒÑÆúÓÃ)
+        MVD_SYMBOL_VERIFY_LABEL_STANDARD = 1,         // ç è¯„çº§å®Œå…¨æŒ‰ç…§isoæ ‡å‡†
+        MVD_SYMBOL_VERIFY_LABEL_CUSTOM = 2,         // éƒ¨åˆ†æŒ‡æ ‡é‡‡ç”¨å®šåˆ¶(DLç è¯„çº§å·²å¼ƒç”¨)
     };
 
     enum _MVD_SYMBOL_VERIFY_PROCESS_TYPE__
     {
-        MVD_SYMBOL_VERIFY_PROCESS_TYPE_I = 1,   // Ö»Ö§³ÖDMÂë,Ğ§¹û½ÏÓÅ
-        MVD_SYMBOL_VERIFY_PROCESS_TYPE_II = 2,   // Ö§³ÖDMÂëºÍQRÂë
+        MVD_SYMBOL_VERIFY_PROCESS_TYPE_I = 1,   // åªæ”¯æŒDMç ,æ•ˆæœè¾ƒä¼˜
+        MVD_SYMBOL_VERIFY_PROCESS_TYPE_II = 2,   // æ”¯æŒDMç å’ŒQRç 
     };
 
 	/** @enum _MVD_CODE_MIRROR_FLAG__
-	*  @brief  Code ¾µÏñ±êÖ¾
+	*  @brief  Code é•œåƒæ ‡å¿—
 	*/
 	enum _MVD_CODE_MIRROR_FLAG__
 	{
-		MVD_CODE_INVALID = 0, // ÎŞĞ§Öµ
-		MVD_CODE_NO_MIRROR = 1, // ·Ç¾µÏñ
-		MVD_CODE_MIRROR = 2, // ¾µÏñ
+		MVD_CODE_INVALID = 0, // æ— æ•ˆå€¼
+		MVD_CODE_NO_MIRROR = 1, // éé•œåƒ
+		MVD_CODE_MIRROR = 2, // é•œåƒ
 	};
 
     /** @enum  _MVDOCR_FILTER_TYPE__
-     *  @brief ×Ö·û¹ıÂËÀàĞÍ
+     *  @brief å­—ç¬¦è¿‡æ»¤ç±»å‹
      */
     typedef enum _MVDOCR_FILTER_TYPE__
     {
-        MVDOCR_FILTER_NO = 0,    // ²»¹ıÂË
-        MVDOCR_FILTER_NUMBERONLY = 1,    // Ö»ÔÊĞíÊı×Ö
-        MVDOCR_FILTER_UPPERLOWERCASEBOTH = 2,    // Ö»ÔÊĞí×ÖÄ¸
-        MVDOCR_FILTER_UPPERCASEONLY = 3,    // Ö»ÔÊĞí´óĞ´×ÖÄ¸
-        MVDOCR_FILTER_LOWERCASEONLY = 4,    // Ö»ÔÊĞíĞ¡Ğ´×ÖÄ¸
-        MVDOCR_FILTER_SPECIALONLY = 5,    // Ö»ÔÊĞíÌØÊâ×Ö·û
-        MVDOCR_FILTER_SPACE = 6,    // Ö»ÔÊĞí¿Õ¸ñ,CNNOCRÖ»Òª¹ıÂËÀàĞÍÉèÎª¿Õ¸ñ£¬Ê¶±ğ½á¹ûÇ¿ÖÆ×ªÎª¿Õ¸ñ£¬´«Í³OCRÈç¹ûÊ¶±ğ½á¹û²»Îª¿Õ¸ñ£¬Ôò·µ»ØÎÊºÅ
-        MVDOCR_FILTER_CUSTOM = 7     // ×Ô¶¨Òå¹ıÂË×Ö·û
+        MVDOCR_FILTER_NO = 0,    // ä¸è¿‡æ»¤
+        MVDOCR_FILTER_NUMBERONLY = 1,    // åªå…è®¸æ•°å­—
+        MVDOCR_FILTER_UPPERLOWERCASEBOTH = 2,    // åªå…è®¸å­—æ¯
+        MVDOCR_FILTER_UPPERCASEONLY = 3,    // åªå…è®¸å¤§å†™å­—æ¯
+        MVDOCR_FILTER_LOWERCASEONLY = 4,    // åªå…è®¸å°å†™å­—æ¯
+        MVDOCR_FILTER_SPECIALONLY = 5,    // åªå…è®¸ç‰¹æ®Šå­—ç¬¦
+        MVDOCR_FILTER_SPACE = 6,    // åªå…è®¸ç©ºæ ¼,CNNOCRåªè¦è¿‡æ»¤ç±»å‹è®¾ä¸ºç©ºæ ¼ï¼Œè¯†åˆ«ç»“æœå¼ºåˆ¶è½¬ä¸ºç©ºæ ¼ï¼Œä¼ ç»ŸOCRå¦‚æœè¯†åˆ«ç»“æœä¸ä¸ºç©ºæ ¼ï¼Œåˆ™è¿”å›é—®å·
+        MVDOCR_FILTER_CUSTOM = 7     // è‡ªå®šä¹‰è¿‡æ»¤å­—ç¬¦
 	}MVDOCR_FILTER_TYPE;
 
     /** @enum  _MVDOCR_FILTER__
-     *  @brief ×Ö·û¹ıÂËÆ÷
+     *  @brief å­—ç¬¦è¿‡æ»¤å™¨
      */
    typedef  struct _MVDOCR_FILTER__
     {
-		MVDOCR_FILTER_TYPE enFilterType;                // ×Ö·û¹ıÂËÀàĞÍ
-        char               pFilterValue[128];           // Óë¹ıÂËÀàĞÍÓĞ¹Ø£¬Ä¬ÈÏÎª¿Õ£»e.g.×Ô¶¨ÒåÄ£Ê½ÏÂĞèÖ¸¶¨¹ıÂË×Ö·û´®
-        int                nReserved[7];                // ±£Áô×Ö½Ú
+		MVDOCR_FILTER_TYPE enFilterType;                // å­—ç¬¦è¿‡æ»¤ç±»å‹
+        char               pFilterValue[128];           // ä¸è¿‡æ»¤ç±»å‹æœ‰å…³ï¼Œé»˜è®¤ä¸ºç©ºï¼›e.g.è‡ªå®šä¹‰æ¨¡å¼ä¸‹éœ€æŒ‡å®šè¿‡æ»¤å­—ç¬¦ä¸²
+        int                nReserved[7];                // ä¿ç•™å­—èŠ‚
 	}MVD_OCR_FILTER;
 
 
 	/** @enum  _MVD_OCR_ROI_ASSO_DATA__
-	*  @brief ×Ö·ûÊ¶±ğROI¹ØÁªÊı¾İ
+	*  @brief å­—ç¬¦è¯†åˆ«ROIå…³è”æ•°æ®
 	*/
    typedef struct _MVD_OCR_FILTER_LIST_
 	{
 		MVD_OCR_FILTER     stRoiFilterList[100];
 		int                nFilterNum;
-		int                nReserved[32];              // ±£Áô×Ö½Ú
+		int                nReserved[32];              // ä¿ç•™å­—èŠ‚
 	}MVD_OCR_FILTER_LIST;
 
     /** @enum  _MVDGEOFIND_CALIPER_ROI_MODE__
-    *  @brief Ô²²éÕÒ/Ö±Ïß²éÕÒÊäÈëÖĞµÄ¿¨³ßÇøÓòÊäÈëÄ£Ê½
+    *  @brief åœ†æŸ¥æ‰¾/ç›´çº¿æŸ¥æ‰¾è¾“å…¥ä¸­çš„å¡å°ºåŒºåŸŸè¾“å…¥æ¨¡å¼
     */
     typedef enum _MVDGEOFIND_RUNNING_MODE__
     {
-        MVDGEOFIND_RUNNING_MODE_CALCULATE_AND_FIND = 0x0000, //¼ÆËãROIÏà¹Ø²¢Ö´ĞĞ²éÕÒ 0
-        MVDGEOFIND_RUNNING_MODE_ONLY_CALCULATE     = 0x0001, //½ö¼ÆËãROIÏà¹ØÊä³ö 1
-        MVDGEOFIND_RUNNING_MODE_ONLY_FIND          = 0x0002  //½öÖ´ĞĞ²éÕÒ(Êä³öÖĞROIÏà¹ØÒÑÖª)2
+        MVDGEOFIND_RUNNING_MODE_CALCULATE_AND_FIND = 0x0000, //è®¡ç®—ROIç›¸å…³å¹¶æ‰§è¡ŒæŸ¥æ‰¾ 0
+        MVDGEOFIND_RUNNING_MODE_ONLY_CALCULATE     = 0x0001, //ä»…è®¡ç®—ROIç›¸å…³è¾“å‡º 1
+        MVDGEOFIND_RUNNING_MODE_ONLY_FIND          = 0x0002  //ä»…æ‰§è¡ŒæŸ¥æ‰¾(è¾“å‡ºä¸­ROIç›¸å…³å·²çŸ¥)2
 
     };
 
     /************************************************************************/
-    /*                            È±Ïİ¼ì²âÀà                            */
+    /*                            ç¼ºé™·æ£€æµ‹ç±»                            */
     /************************************************************************/
     /** @enum  _MVD_EDGEINSP_EDGE_FLAW_TYPE__
      *  @brief Type of the flaw of the edge inspection
      */
     enum _MVD_EDGEINSP_SINGLE_EDGE_FLAW_TYPE__
     {
-        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_OFFSET = 0x0006, // ±ßÔµÎ»ÖÃÆ«ÒÆ
-        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_ROUGH = 0x0007, // ±ßÔµÍ¹Æğ»ò°¼¿ÓÈ±Ïİ
-        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_CRACK = 0x0008, // ±ßÔµ¶ÏÁÑÈ±Ïİ
-        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_GRAD = 0x0009, // ±ßÔµ½×Ìİ²îÈ±Ïİ
+        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_OFFSET = 0x0006, // è¾¹ç¼˜ä½ç½®åç§»
+        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_ROUGH = 0x0007, // è¾¹ç¼˜å‡¸èµ·æˆ–å‡¹å‘ç¼ºé™·
+        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_CRACK = 0x0008, // è¾¹ç¼˜æ–­è£‚ç¼ºé™·
+        MVD_EDGEINSP_SINGLE_FLAW_TYPE_EDGE_GRAD = 0x0009, // è¾¹ç¼˜é˜¶æ¢¯å·®ç¼ºé™·
     };
 
     /** @enum  _MVD_EDGEINSP_EDGE_FLAW_TYPE__
@@ -450,11 +450,11 @@ namespace VisionDesigner
      */
     enum _MVD_EDGEINSP_EDGE_PAIR_FLAW_TYPE__
     {
-        MVD_EDGEINSP_FLAW_TYPE_EDGE_WIDTH = 0x0001, // ±ßÔµ¶Ô¿í¶ÈÈ±Ïİ
-        MVD_EDGEINSP_FLAW_TYPE_EDGE_OFFSET = 0x0002, // ±ßÔµ¶ÔÎ»ÖÃÆ«ÒÆ
-        MVD_EDGEINSP_FLAW_TYPE_EDGE_ROUGH = 0x0003, // ±ßÔµ¶Ô½×ÌİÈ±Ïİ
-        MVD_EDGEINSP_FLAW_TYPE_EDGE_CRACK = 0x0004, // ±ßÔµ¶Ô¶ÏÁÑÈ±Ïİ
-        MVD_EDGEINSP_FLAW_TYPE_EDGE_BUBBLE = 0x000A, // ±ßÔµ¶ÔÆøÅİÈ±Ïİ
+        MVD_EDGEINSP_FLAW_TYPE_EDGE_WIDTH = 0x0001, // è¾¹ç¼˜å¯¹å®½åº¦ç¼ºé™·
+        MVD_EDGEINSP_FLAW_TYPE_EDGE_OFFSET = 0x0002, // è¾¹ç¼˜å¯¹ä½ç½®åç§»
+        MVD_EDGEINSP_FLAW_TYPE_EDGE_ROUGH = 0x0003, // è¾¹ç¼˜å¯¹é˜¶æ¢¯ç¼ºé™·
+        MVD_EDGEINSP_FLAW_TYPE_EDGE_CRACK = 0x0004, // è¾¹ç¼˜å¯¹æ–­è£‚ç¼ºé™·
+        MVD_EDGEINSP_FLAW_TYPE_EDGE_BUBBLE = 0x000A, // è¾¹ç¼˜å¯¹æ°”æ³¡ç¼ºé™·
     };
 
      /** @enum  _MVD_EDGEINSP_FLAW_DEFECT_TYPE__
@@ -462,14 +462,14 @@ namespace VisionDesigner
      */
     enum _MVD_EDGEINSP_FLAW_DEFECT_TYPE__
     {
-        MVD_EDGEINSP_FLAW_DEFECT_TYPE_NONE = 0, // ·ÇÈ±Ïİ
-        MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW = 1, // È±Ïİ
-		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP  = 2, // ¶ÏÁÑ
+        MVD_EDGEINSP_FLAW_DEFECT_TYPE_NONE = 0, // éç¼ºé™·
+        MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW = 1, // ç¼ºé™·
+		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP  = 2, // æ–­è£‚
 
-		MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW_LEFT  = 3,  // ×óÈ±Ïİ
-		MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW_RIGHT = 4,  // ÓÒÈ±Ïİ
-		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP_LEFT   = 5,  // ×ó¶ÏÁÑ
-		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP_RIGHT  = 6,  // ÓÒ¶ÏÁÑ
+		MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW_LEFT  = 3,  // å·¦ç¼ºé™·
+		MVD_EDGEINSP_FLAW_DEFECT_TYPE_FLAW_RIGHT = 4,  // å³ç¼ºé™·
+		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP_LEFT   = 5,  // å·¦æ–­è£‚
+		MVD_EDGEINSP_FLAW_DEFECT_TYPE_GAP_RIGHT  = 6,  // å³æ–­è£‚
     };
 
     /** @enum  _MVD_MKINSP_METHOD_TYPE__
@@ -477,8 +477,8 @@ namespace VisionDesigner
      */
     enum _MVD_MKINSP_METHOD_TYPE__
     {
-        MVD_MKINSP_COAR_CORRE = 1, // Ïà¹Ø·¨
-        MVD_MKINSP_FINE_MEAN_STD = 2, // ¾ùÖµ±ê×¼²î
+        MVD_MKINSP_COAR_CORRE = 1, // ç›¸å…³æ³•
+        MVD_MKINSP_FINE_MEAN_STD = 2, // å‡å€¼æ ‡å‡†å·®
     };
 
     /** @enum  _MVD_BEAD_GUIDE_RUNNING_MODE__
@@ -486,8 +486,8 @@ namespace VisionDesigner
      */
     enum _MVD_BEAD_GUIDE_RUNNING_MODE__
     {
-        MVD_BEAD_GUIDE_FIX_POINT = 0, // °´½ºÂ·¹Ì¶¨µã
-        MVD_BEAD_GUIDE_FIND_EDGE = 1, // ¹Ì¶¨½ºÂ·²éÕÒ±ßÔµ
+        MVD_BEAD_GUIDE_FIX_POINT = 0, // æŒ‰èƒ¶è·¯å›ºå®šç‚¹
+        MVD_BEAD_GUIDE_FIND_EDGE = 1, // å›ºå®šèƒ¶è·¯æŸ¥æ‰¾è¾¹ç¼˜
     };
 
     /** @enum  _MVD_EDGEINSP_PATTERN_TRAIN_MODE__
@@ -495,8 +495,8 @@ namespace VisionDesigner
     */
     enum _MVD_EDGEINSP_PATTERN_TRAIN_MODE__
     {
-        MVD_EDGEINSP_PATTERN_TRAIN_I = 1, // Ä£ĞÍ´´½¨Ê§°ÜÊ±£¬²»Êä³öÁÙÊ±½á¹û£¬Ïñ±ßÔµµã¡¢¿¨³ßµÈ
-        MVD_EDGEINSP_PATTERN_TRAIN_II = 2, // Ä£ĞÍ´´½¨Ê§°ÜÊ±£¬Êä³öÁÙÊ±½á¹û£¬Ïñ±ßÔµµã¡¢¿¨³ßµÈ
+        MVD_EDGEINSP_PATTERN_TRAIN_I = 1, // æ¨¡å‹åˆ›å»ºå¤±è´¥æ—¶ï¼Œä¸è¾“å‡ºä¸´æ—¶ç»“æœï¼Œåƒè¾¹ç¼˜ç‚¹ã€å¡å°ºç­‰
+        MVD_EDGEINSP_PATTERN_TRAIN_II = 2, // æ¨¡å‹åˆ›å»ºå¤±è´¥æ—¶ï¼Œè¾“å‡ºä¸´æ—¶ç»“æœï¼Œåƒè¾¹ç¼˜ç‚¹ã€å¡å°ºç­‰
     };
 
 	/** @enum  _MVD_LINE_EDGEINSP_ROI_ASSO_DATA__
@@ -504,8 +504,8 @@ namespace VisionDesigner
     */
 	struct _MVD_LINE_EDGEINSP_ROI_ASSO_DATA__
 	{
-		bool bUsedStandardLine;				// ÊÇ·ñÆôÓÃÍâ²¿±ê×¼Ö±Ïß£¬ÆôÓÃÊ±ĞèÒª´«ÈëstStandardLine
-		MVD_LINE_F stStandardLine;			// ±ê×¼Ö±Ïß
+		bool bUsedStandardLine;				// æ˜¯å¦å¯ç”¨å¤–éƒ¨æ ‡å‡†ç›´çº¿ï¼Œå¯ç”¨æ—¶éœ€è¦ä¼ å…¥stStandardLine
+		MVD_LINE_F stStandardLine;			// æ ‡å‡†ç›´çº¿
 	};
 
 	/** @enum  _MVD_LINE_PAIR_EDGEINSP_ROI_ASSO_DATA__
@@ -513,9 +513,9 @@ namespace VisionDesigner
     */
 	struct _MVD_LINE_PAIR_EDGEINSP_ROI_ASSO_DATA__
 	{
-		bool bUsedStandardLine;				// ÊÇ·ñÆôÓÃÍâ²¿±ê×¼Ö±Ïß£¬ÆôÓÃÊ±ĞèÒª´«ÈëstStandardLine1ÓëstStandardLine2
-		MVD_LINE_F stStandardLine1;			// ±ê×¼Ö±Ïß1
-		MVD_LINE_F stStandardLine2;			// ±ê×¼Ö±Ïß2
+		bool bUsedStandardLine;				// æ˜¯å¦å¯ç”¨å¤–éƒ¨æ ‡å‡†ç›´çº¿ï¼Œå¯ç”¨æ—¶éœ€è¦ä¼ å…¥stStandardLine1ä¸stStandardLine2
+		MVD_LINE_F stStandardLine1;			// æ ‡å‡†ç›´çº¿1
+		MVD_LINE_F stStandardLine2;			// æ ‡å‡†ç›´çº¿2
 	};
 
 	/** @enum  _MVD_ARC_EDGEINSP_ROI_ASSO_DATA__
@@ -523,8 +523,8 @@ namespace VisionDesigner
     */
 	struct _MVD_ARC_EDGEINSP_ROI_ASSO_DATA__
 	{
-		bool bUsedTrajArc;					// ÊÇ·ñÆôÓÃÄâºÏÔ²»¡£¬ÆôÓÃÊ±ĞèÒª´«ÈëstTrajArc
-		MVD_ARC_F stTrajArc;			    // ÄâºÏÔ²»¡
+		bool bUsedTrajArc;					// æ˜¯å¦å¯ç”¨æ‹Ÿåˆåœ†å¼§ï¼Œå¯ç”¨æ—¶éœ€è¦ä¼ å…¥stTrajArc
+		MVD_ARC_F stTrajArc;			    // æ‹Ÿåˆåœ†å¼§
 	};
 
 	/** @enum  _MVD_ARC_PAIR_EDGEINSP_ROI_ASSO_DATA__
@@ -532,24 +532,24 @@ namespace VisionDesigner
     */
 	struct _MVD_ARC_PAIR_EDGEINSP_ROI_ASSO_DATA__
 	{
-		bool bUsedTrajArc;					// ÊÇ·ñÆôÓÃÄâºÏÔ²»¡£¬ÆôÓÃÊ±ĞèÒª´«ÈëstTrajArc0ºÍstTrajArc1
-		MVD_ARC_F stTrajArc0;			    // ÄâºÏÔ²»¡0
-		MVD_ARC_F stTrajArc1;				// ÄâºÏÔ²»¡1
+		bool bUsedTrajArc;					// æ˜¯å¦å¯ç”¨æ‹Ÿåˆåœ†å¼§ï¼Œå¯ç”¨æ—¶éœ€è¦ä¼ å…¥stTrajArc0å’ŒstTrajArc1
+		MVD_ARC_F stTrajArc0;			    // æ‹Ÿåˆåœ†å¼§0
+		MVD_ARC_F stTrajArc1;				// æ‹Ÿåˆåœ†å¼§1
 	};
 	
 
     /************************************************************************/
-    /*                            ÑÕÉ«´¦ÀíÀà                            */
+    /*                            é¢œè‰²å¤„ç†ç±»                            */
     /************************************************************************/
     /** @enum  _MVD_COLOR_SPACE_TYPE__
     *  @brief Color space type
     */
     enum _MVD_COLOR_SPACE_TYPE__
     {
-        MVD_COLOR_SPACE_RGB = 1,   // RGBÑÕÉ«¿Õ¼ä
-        MVD_COLOR_SPACE_HSV = 2,   // HSVÑÕÉ«¿Õ¼ä
-        MVD_COLOR_SPACE_HSI = 3,   // HSIÑÕÉ«¿Õ¼ä
-        MVD_COLOR_SPACE_YUV = 4    // YUVÑÕÉ«¿Õ¼ä(ÑÕÉ«³éÈ¡²»Ö§³Ö)
+        MVD_COLOR_SPACE_RGB = 1,   // RGBé¢œè‰²ç©ºé—´
+        MVD_COLOR_SPACE_HSV = 2,   // HSVé¢œè‰²ç©ºé—´
+        MVD_COLOR_SPACE_HSI = 3,   // HSIé¢œè‰²ç©ºé—´
+        MVD_COLOR_SPACE_YUV = 4    // YUVé¢œè‰²ç©ºé—´(é¢œè‰²æŠ½å–ä¸æ”¯æŒ)
     };
 
     /** @enum  _MVD_COLOR_EXTRACT_SINGLE_RANGE__
@@ -557,15 +557,15 @@ namespace VisionDesigner
     */
     struct _MVD_COLOR_EXTRACT_SINGLE_RANGE__
     {
-        int nC1LowTolerance;        // µÚÒ»Í¨µÀ(R or H)µÄµÍÈİÈÌÖµ
-        int nC1HighTolerance;       // µÚÒ»Í¨µÀ(R or H)µÄ¸ßÈİÈÌÖµ
-        int nC2LowTolerance;        // µÚ¶şÍ¨µÀ(G or S)µÄµÍÈİÈÌÖµ
-        int nC2HighTolerance;       // µÚ¶şÍ¨µÀ(G or S)µÄ¸ßÈİÈÌÖµ
-        int nC3LowTolerance;        // µÚÈıÍ¨µÀ(B or V)µÄµÍÈİÈÌÖµ
-        int nC3HighTolerance;       // µÚÈıÍ¨µÀ(B or V)µÄ¸ßÈİÈÌÖµ
-        bool bReverseEnable;        // ·´×ªÊ¹ÄÜ   true±íÊ¾·´×ª£¬false±íÊ¾²»·´×ª
-        _MVD_COLOR_SPACE_TYPE__ enColorSpace;            // ÑÕÉ«¿Õ¼ä  //Ã¿¸ö·¶Î§¾ù¿Éµ¥¶ÀÉèÖÃÑÕÉ«¿Õ¼ä
-        int nReserved[8]; // ±£Áô×Ö½Ú
+        int nC1LowTolerance;        // ç¬¬ä¸€é€šé“(R or H)çš„ä½å®¹å¿å€¼
+        int nC1HighTolerance;       // ç¬¬ä¸€é€šé“(R or H)çš„é«˜å®¹å¿å€¼
+        int nC2LowTolerance;        // ç¬¬äºŒé€šé“(G or S)çš„ä½å®¹å¿å€¼
+        int nC2HighTolerance;       // ç¬¬äºŒé€šé“(G or S)çš„é«˜å®¹å¿å€¼
+        int nC3LowTolerance;        // ç¬¬ä¸‰é€šé“(B or V)çš„ä½å®¹å¿å€¼
+        int nC3HighTolerance;       // ç¬¬ä¸‰é€šé“(B or V)çš„é«˜å®¹å¿å€¼
+        bool bReverseEnable;        // åè½¬ä½¿èƒ½   trueè¡¨ç¤ºåè½¬ï¼Œfalseè¡¨ç¤ºä¸åè½¬
+        _MVD_COLOR_SPACE_TYPE__ enColorSpace;            // é¢œè‰²ç©ºé—´  //æ¯ä¸ªèŒƒå›´å‡å¯å•ç‹¬è®¾ç½®é¢œè‰²ç©ºé—´
+        int nReserved[8]; // ä¿ç•™å­—èŠ‚
     };
 	
 	/** @enum  _MVD_COLOR_EXTRACT_SINGLE_LABEL__
@@ -573,9 +573,9 @@ namespace VisionDesigner
 	*/
 	struct _MVD_COLOR_EXTRACT_SINGLE_LABEL__
 	{
-		int nValue;                   // »Ò¶ÈÖµ
-		char cName[256];	          // ·Ö×éÃû³Æ×Ö·ûÊı×é
-									  // ¶àÑÕÉ«·Ö¸î±êÇ©°üÀ¨valueºÍname£¬µ±ËùÓĞÑÕÉ«·¶Î§µÄvalue¾ùÎª0Ê±£¬ÒÔname×÷Îª·Ö×é±êÇ©£¬·ñÔòÒÔvalue×÷Îª·Ö×é±êÇ©
+		int nValue;                   // ç°åº¦å€¼
+		char cName[256];	          // åˆ†ç»„åç§°å­—ç¬¦æ•°ç»„
+									  // å¤šé¢œè‰²åˆ†å‰²æ ‡ç­¾åŒ…æ‹¬valueå’Œnameï¼Œå½“æ‰€æœ‰é¢œè‰²èŒƒå›´çš„valueå‡ä¸º0æ—¶ï¼Œä»¥nameä½œä¸ºåˆ†ç»„æ ‡ç­¾ï¼Œå¦åˆ™ä»¥valueä½œä¸ºåˆ†ç»„æ ‡ç­¾
 	};
 	
 	/** @enum  _MVD_COLOR_SEGMENT_SINGLE_RANGE__
@@ -583,166 +583,166 @@ namespace VisionDesigner
 	*/
 	struct _MVD_COLOR_SEGMENT_SINGLE_RANGE__
 	{
-		_MVD_COLOR_EXTRACT_SINGLE_RANGE__ stCfg;          // ÑÕÉ«·¶Î§µÄ²ÎÊı
-		_MVD_COLOR_EXTRACT_SINGLE_LABEL__ stLabel;        // ÑÕÉ«·Ö×é±êÇ©
-		int nUseGlobalAreaParam;						  // ÊÇ·ñÊ¹ÓÃÈ«¾ÖÃæ»ı²ÎÊı(ÔÓ°ßÃæ»ıºÍ¿×¶´)£¬HKA_TRUEÊ¹ÓÃ£¬HKA_FALSE²»Ê¹ÓÃ
-		int nHoleArea;									  // µ±Ç°ÑÕÉ«·¶Î§µÄ¿×¶´Ãæ»ı²ÎÊı£¬½öµ±nUseGlobalAreaParamÎªHKA_FALSEÊ±ÓĞĞ§
-		int nClutterArea;								  // µ±Ç°ÑÕÉ«·¶Î§µÄÔÓ°ßÃæ»ı²ÎÊı£¬½öµ±nUseGlobalAreaParamÎªHKA_FALSEÊ±ÓĞĞ§
+		_MVD_COLOR_EXTRACT_SINGLE_RANGE__ stCfg;          // é¢œè‰²èŒƒå›´çš„å‚æ•°
+		_MVD_COLOR_EXTRACT_SINGLE_LABEL__ stLabel;        // é¢œè‰²åˆ†ç»„æ ‡ç­¾
+		int nUseGlobalAreaParam;						  // æ˜¯å¦ä½¿ç”¨å…¨å±€é¢ç§¯å‚æ•°(æ‚æ–‘é¢ç§¯å’Œå­”æ´)ï¼ŒHKA_TRUEä½¿ç”¨ï¼ŒHKA_FALSEä¸ä½¿ç”¨
+		int nHoleArea;									  // å½“å‰é¢œè‰²èŒƒå›´çš„å­”æ´é¢ç§¯å‚æ•°ï¼Œä»…å½“nUseGlobalAreaParamä¸ºHKA_FALSEæ—¶æœ‰æ•ˆ
+		int nClutterArea;								  // å½“å‰é¢œè‰²èŒƒå›´çš„æ‚æ–‘é¢ç§¯å‚æ•°ï¼Œä»…å½“nUseGlobalAreaParamä¸ºHKA_FALSEæ—¶æœ‰æ•ˆ
 	};
 
 
 	/************************************************************************/
-	/*								Ä¿±ê¸ú×ÙÀà			                     */
+	/*								ç›®æ ‡è·Ÿè¸ªç±»			                     */
 	/************************************************************************/
 	/** @struct _MVD_TRACK_COUNT_DIRECTION__
-	*  @brief  Ä¿±ê¸ú×Ù¼ÆÊı·½Ïò
+	*  @brief  ç›®æ ‡è·Ÿè¸ªè®¡æ•°æ–¹å‘
 	*/
 	enum _MVD_TRACK_COUNT_DIRECTION__
 	{
-		MVD_TRACK_COUNT_DIR_Y           = 0,  // ÑØÍ¼ÏñÊúÖ±·½Ïò¸ú×Ù¼ÆÊı£¬Ä¬ÈÏÖµ
-		MVD_TRACK_COUNT_DIR_X           = 1,  // ÑØÍ¼ÏñË®Æ½·½Ïò¸ú×Ù¼ÆÊı
+		MVD_TRACK_COUNT_DIR_Y           = 0,  // æ²¿å›¾åƒç«–ç›´æ–¹å‘è·Ÿè¸ªè®¡æ•°ï¼Œé»˜è®¤å€¼
+		MVD_TRACK_COUNT_DIR_X           = 1,  // æ²¿å›¾åƒæ°´å¹³æ–¹å‘è·Ÿè¸ªè®¡æ•°
 	};
 
 	/** @struct _MVD_TRACK_COUNT_LINE__
-	*  @brief  Ä¿±ê¸ú×Ù¼ÆÊıÏß
+	*  @brief  ç›®æ ‡è·Ÿè¸ªè®¡æ•°çº¿
 	*/
 	struct _MVD_TRACK_COUNT_LINE__
 	{
-		_MVD_TRACK_COUNT_DIRECTION__    stCountDir;   // ¼ÆÊıÏßµÄ·½Ïò£¬Ïê¼û_MVD_TRACK_COUNT_DIRECTION__
-		float							fLinePos;     // ¼ÆÊıÏßµÄÎ»ÖÃ
-		int								nReserved[32]; // ±£Áô×Ö½Ú
+		_MVD_TRACK_COUNT_DIRECTION__    stCountDir;   // è®¡æ•°çº¿çš„æ–¹å‘ï¼Œè¯¦è§_MVD_TRACK_COUNT_DIRECTION__
+		float							fLinePos;     // è®¡æ•°çº¿çš„ä½ç½®
+		int								nReserved[32]; // ä¿ç•™å­—èŠ‚
 	};
 
 
 	/************************************************************************/
-	/*								Òì³£¼ì²â£¨Inspect£©Àà			             */
+	/*								å¼‚å¸¸æ£€æµ‹ï¼ˆInspectï¼‰ç±»			             */
 	/************************************************************************/
 
 
 	/************************************************************************/
-	/*                            °æ±¾ĞÅÏ¢»ñÈ¡Àà                            */
+	/*                            ç‰ˆæœ¬ä¿¡æ¯è·å–ç±»                            */
 	/************************************************************************/
 	/** @enum  _MVD_SDK_TYPE__
 	*  @brief sdk type
 	*/
     enum _MVD_SDK_TYPE__
     {
-		MVD_SDK_TYPE_MIN = 0,        ///SDKÀàĞÍ×îĞ¡Öµ
+		MVD_SDK_TYPE_MIN = 0,        ///SDKç±»å‹æœ€å°å€¼
 
-		MVD_All2DVersion =0,         /// ËùÓĞÀà±ğ
+		MVD_All2DVersion =0,         /// æ‰€æœ‰ç±»åˆ«
 
-		MVD_CameraMap = 1,           /// Ïà»úÓ³Éä
-		MVD_ImageFixture = 2,        /// Í¼ÏñĞŞÕı
-		MVD_LineAlign = 3,           /// Ïß¶ÔÎ»
-		MVD_PointSetAlign = 4,       /// µã¼¯¶ÔÎ»
-		MVD_PositionFix = 5,         /// Î»ÖÃĞŞÕı
-		MVD_SinglePointAlign = 6,    /// µ¥µã¶ÔÎ»
+		MVD_CameraMap = 1,           /// ç›¸æœºæ˜ å°„
+		MVD_ImageFixture = 2,        /// å›¾åƒä¿®æ­£
+		MVD_LineAlign = 3,           /// çº¿å¯¹ä½
+		MVD_PointSetAlign = 4,       /// ç‚¹é›†å¯¹ä½
+		MVD_PositionFix = 5,         /// ä½ç½®ä¿®æ­£
+		MVD_SinglePointAlign = 6,    /// å•ç‚¹å¯¹ä½
 
-		MVD_CalibBoardCalib = 10,    /// ±ê¶¨°å±ê¶¨
-		MVD_CalibTrans = 11,         /// ±ê¶¨×ª»»
-		MVD_ImageCalib = 12,         /// »û±ä±ê¶¨
-		MVD_ImageCorrectCalib = 13,  /// »û±ä½ÃÕı
-		MVD_MapCalib = 14,           /// Ó³Éä±ê¶¨
-		MVD_MatrixFix = 15,          /// ¾ØÕóĞŞÕı
-		MVD_MatrixToParam = 16,      /// ¾ØÕó×ª²ÎÊı
-		MVD_NImageCalib = 17,        /// NÍ¼±ê¶¨
-		MVD_NPointCalib = 18,        /// Nµã±ê¶¨
+		MVD_CalibBoardCalib = 10,    /// æ ‡å®šæ¿æ ‡å®š
+		MVD_CalibTrans = 11,         /// æ ‡å®šè½¬æ¢
+		MVD_ImageCalib = 12,         /// ç•¸å˜æ ‡å®š
+		MVD_ImageCorrectCalib = 13,  /// ç•¸å˜çŸ«æ­£
+		MVD_MapCalib = 14,           /// æ˜ å°„æ ‡å®š
+		MVD_MatrixFix = 15,          /// çŸ©é˜µä¿®æ­£
+		MVD_MatrixToParam = 16,      /// çŸ©é˜µè½¬å‚æ•°
+		MVD_NImageCalib = 17,        /// Nå›¾æ ‡å®š
+		MVD_NPointCalib = 18,        /// Nç‚¹æ ‡å®š
 
-		MVD_ColorConvert = 30,       /// ÑÕÉ«×ª»»
-		MVD_ColorExtract = 31,       /// ÑÕÉ«³éÈ¡
-		MVD_ColorMeasure = 32,       /// ÑÕÉ«²âÁ¿
-		MVD_ColorRecognition = 33,   /// ÑÕÉ«Ê¶±ğ
+		MVD_ColorConvert = 30,       /// é¢œè‰²è½¬æ¢
+		MVD_ColorExtract = 31,       /// é¢œè‰²æŠ½å–
+		MVD_ColorMeasure = 32,       /// é¢œè‰²æµ‹é‡
+		MVD_ColorRecognition = 33,   /// é¢œè‰²è¯†åˆ«
 
-		MVD_ArcFlawInspCpp = 40,       /// Ô²»¡È±Ïİ¼ì²â
-		MVD_ArcPairFlawInspCpp = 41,   /// Ô²»¡¶ÔÈ±Ïİ¼ì²â
-		MVD_BeadGuideCpp = 42,         /// Â·¾¶ÌáÈ¡
-		MVD_EdgeFlawInsp = 43,         /// ±ßÔµÈ±Ïİ¼ì²â
-		MVD_EdgePairFlawInsp = 44,     /// ±ßÔµ¶ÔÈ±Ïİ¼ì²â
-		MVD_LineEdgeFlawInsp = 45,     /// Ö±Ïß±ßÔµ¼ì²â
-		MVD_LineEdgePairFlawInsp = 46, /// Ö±Ïß¶Ô±ßÔµ¼ì²â
+		MVD_ArcFlawInspCpp = 40,       /// åœ†å¼§ç¼ºé™·æ£€æµ‹
+		MVD_ArcPairFlawInspCpp = 41,   /// åœ†å¼§å¯¹ç¼ºé™·æ£€æµ‹
+		MVD_BeadGuideCpp = 42,         /// è·¯å¾„æå–
+		MVD_EdgeFlawInsp = 43,         /// è¾¹ç¼˜ç¼ºé™·æ£€æµ‹
+		MVD_EdgePairFlawInsp = 44,     /// è¾¹ç¼˜å¯¹ç¼ºé™·æ£€æµ‹
+		MVD_LineEdgeFlawInsp = 45,     /// ç›´çº¿è¾¹ç¼˜æ£€æµ‹
+		MVD_LineEdgePairFlawInsp = 46, /// ç›´çº¿å¯¹è¾¹ç¼˜æ£€æµ‹
 
-		MVD_BlobFind = 50,              /// Blob²éÕÒ
-		MVD_CaliperTool = 51,           /// ¿¨³ß¹¤¾ß
-		MVD_CircleFind = 52,            /// Ô²²éÕÒ
-		MVD_CrossPointFind = 53,        /// ±ßÔµ½»µã¼ì²â
-		MVD_EdgeFind = 54,              /// ±ßÔµ¼ì²â
-		MVD_EdgeWidth = 55,             /// ¼ä¾à¼ì²â
-		MVD_LineFind = 56,              /// Ïß²éÕÒ
-		MVD_MultiCategoryBlobFind = 57, /// Blob±êÇ©·ÖÎö
-		MVD_MultiLineFind = 58,         /// ¶àÖ±Ïß²éÕÒ
-		MVD_PairLineFind = 59,          /// Æ½ĞĞÏß²éÕÒ
-		MVD_PeakFind = 60,              /// ¶¥µã¼ì²â
-		MVD_QuadrangleFindCpp = 61,     /// ËÄ±ßĞÎ²éÕÒ
-		MVD_RectangleFind = 62,         /// ¾ØĞÎ¼ì²â
-		MVD_BoxROIFind = 63,            /// ¾ØĞÎROI»ñÈ¡
-		MVD_AnnROIFind = 64,            /// Ô²»·ROI»ñÈ¡
-		MVD_NearestPointFind = 65,      /// ×î½üÌØÕ÷µã»ñÈ¡
-		MVD_RegionProjection = 66,      /// ÇøÓòÍ¶Ó°
-		MVD_EllipseFind = 67,           /// ÍÖÔ²²éÕÒ
-		MVD_PitchFind = 68,				/// ½Ú¾à²âÁ¿
+		MVD_BlobFind = 50,              /// BlobæŸ¥æ‰¾
+		MVD_CaliperTool = 51,           /// å¡å°ºå·¥å…·
+		MVD_CircleFind = 52,            /// åœ†æŸ¥æ‰¾
+		MVD_CrossPointFind = 53,        /// è¾¹ç¼˜äº¤ç‚¹æ£€æµ‹
+		MVD_EdgeFind = 54,              /// è¾¹ç¼˜æ£€æµ‹
+		MVD_EdgeWidth = 55,             /// é—´è·æ£€æµ‹
+		MVD_LineFind = 56,              /// çº¿æŸ¥æ‰¾
+		MVD_MultiCategoryBlobFind = 57, /// Blobæ ‡ç­¾åˆ†æ
+		MVD_MultiLineFind = 58,         /// å¤šç›´çº¿æŸ¥æ‰¾
+		MVD_PairLineFind = 59,          /// å¹³è¡Œçº¿æŸ¥æ‰¾
+		MVD_PeakFind = 60,              /// é¡¶ç‚¹æ£€æµ‹
+		MVD_QuadrangleFindCpp = 61,     /// å››è¾¹å½¢æŸ¥æ‰¾
+		MVD_RectangleFind = 62,         /// çŸ©å½¢æ£€æµ‹
+		MVD_BoxROIFind = 63,            /// çŸ©å½¢ROIè·å–
+		MVD_AnnROIFind = 64,            /// åœ†ç¯ROIè·å–
+		MVD_NearestPointFind = 65,      /// æœ€è¿‘ç‰¹å¾ç‚¹è·å–
+		MVD_RegionProjection = 66,      /// åŒºåŸŸæŠ•å½±
+		MVD_EllipseFind = 67,           /// æ¤­åœ†æŸ¥æ‰¾
+		MVD_PitchFind = 68,				/// èŠ‚è·æµ‹é‡
 
-		MVD_C2CMeasure = 70,            /// Ô²Ô²²âÁ¿
-		MVD_CircleFit = 71,             /// Ô²ÄâºÏ
-		MVD_HistTool = 72,              /// Ö±·½Í¼¹¤¾ß
-		MVD_IntensityMeasure = 73,      /// ÁÁ¶È²âÁ¿
-		MVD_L2CMeasure = 74,            /// ÏßÔ²²âÁ¿
-		MVD_L2LMeasure = 75,            /// ÏßÏß²âÁ¿
-		MVD_LineFit = 76,               /// ÏßÄâºÏ
-		MVD_P2CMeasure = 77,            /// µãÔ²²âÁ¿
-		MVD_P2LMeasure = 78,            /// µãÏß²âÁ¿
-		MVD_P2PMeasure = 79,            /// µãµã²âÁ¿
-		MVD_PixelCount = 80,            /// ÏñËØÍ³¼Æ
-		MVD_EllipseFit = 81,            /// ÍÖÔ²ÄâºÏ
+		MVD_C2CMeasure = 70,            /// åœ†åœ†æµ‹é‡
+		MVD_CircleFit = 71,             /// åœ†æ‹Ÿåˆ
+		MVD_HistTool = 72,              /// ç›´æ–¹å›¾å·¥å…·
+		MVD_IntensityMeasure = 73,      /// äº®åº¦æµ‹é‡
+		MVD_L2CMeasure = 74,            /// çº¿åœ†æµ‹é‡
+		MVD_L2LMeasure = 75,            /// çº¿çº¿æµ‹é‡
+		MVD_LineFit = 76,               /// çº¿æ‹Ÿåˆ
+		MVD_P2CMeasure = 77,            /// ç‚¹åœ†æµ‹é‡
+		MVD_P2LMeasure = 78,            /// ç‚¹çº¿æµ‹é‡
+		MVD_P2PMeasure = 79,            /// ç‚¹ç‚¹æµ‹é‡
+		MVD_PixelCount = 80,            /// åƒç´ ç»Ÿè®¡
+		MVD_EllipseFit = 81,            /// æ¤­åœ†æ‹Ÿåˆ
 
-		MVD_MKInsp = 90,                /// ×Ö·ûÈ±Ïİ¼ì²â
+		MVD_MKInsp = 90,                /// å­—ç¬¦ç¼ºé™·æ£€æµ‹
 
-		MVD_AlmightyPatMatch = 100,     /// È«ÄÜÌØÕ÷Æ¥Åä
-		MVD_FastFeaturePatMatch = 101,  /// ¿ìËÙÌØÕ÷Æ¥Åä
-		MVD_GrayPatMatchCpp = 102,      /// »Ò¶ÈÌØÕ÷Æ¥Åä
-		MVD_HPFeaturePatMatch = 103,    /// ¸ß¾«¶ÈÌØÕ÷Æ¥Åä
+		MVD_AlmightyPatMatch = 100,     /// å…¨èƒ½ç‰¹å¾åŒ¹é…
+		MVD_FastFeaturePatMatch = 101,  /// å¿«é€Ÿç‰¹å¾åŒ¹é…
+		MVD_GrayPatMatchCpp = 102,      /// ç°åº¦ç‰¹å¾åŒ¹é…
+		MVD_HPFeaturePatMatch = 103,    /// é«˜ç²¾åº¦ç‰¹å¾åŒ¹é…
 
-		MVD_AffineTransPrepro = 110,		/// ·ÂÉä±ä»»
-		MVD_ArithmeticPrepro = 111,			/// Í¼ÏñÔËËã
-		MVD_BinaryPrepro = 112,				/// Í¼Ïñ¶şÖµ»¯
-		MVD_EnhancePrepro = 113,			/// Í¼ÏñÔöÇ¿
-		MVD_FilterPrepro = 114,				/// Í¼Ïñ¹ıÂË
-		MVD_FrameMeanPrepro = 115,			/// Ö¡Æ½¾ù
-		MVD_MorphPrepro = 116,				/// ĞÎÌ¬Ñ§´¦Àí
-		MVD_NormalizePrepro = 117,			/// Í¼Ïñ¹éÒ»»¯
-		MVD_PolarWarpPrepro = 118,			/// Ô²»·Õ¹¿ª
-		MVD_RegionCopyPrepro = 119,			/// ¿½±´Ìî³ä
-		MVD_ShadeCorrectPrepro = 120,		/// ÒõÓ°Ğ£Õı
-		MVD_SharpnessPrepro = 121,			/// ÇåÎú¶ÈÆÀ¹À
-		MVD_WarpDistortPrepro = 122,		/// Í¼Ïñ½ÃÕı
-		MVD_BoxOverlapPrepro = 123,			/// BoxÖØµşÂÊ
-		MVD_BoxMergePrepro = 124,			/// BoxÈÚºÏ
-		MVD_ImageResizePrepro = 125,		/// Í¼ÏñËõ·Å
-		MVD_MultiLabelFilterPrepro = 126,	/// ¶à±êÇ©É¸Ñ¡
-		MVD_BoxFilterPrepro = 127,			/// BOX¹ıÂË
-		MVD_MirrorPrepro = 128,         /// Í¼Ïñ¾µÏñ
+		MVD_AffineTransPrepro = 110,		/// ä»¿å°„å˜æ¢
+		MVD_ArithmeticPrepro = 111,			/// å›¾åƒè¿ç®—
+		MVD_BinaryPrepro = 112,				/// å›¾åƒäºŒå€¼åŒ–
+		MVD_EnhancePrepro = 113,			/// å›¾åƒå¢å¼º
+		MVD_FilterPrepro = 114,				/// å›¾åƒè¿‡æ»¤
+		MVD_FrameMeanPrepro = 115,			/// å¸§å¹³å‡
+		MVD_MorphPrepro = 116,				/// å½¢æ€å­¦å¤„ç†
+		MVD_NormalizePrepro = 117,			/// å›¾åƒå½’ä¸€åŒ–
+		MVD_PolarWarpPrepro = 118,			/// åœ†ç¯å±•å¼€
+		MVD_RegionCopyPrepro = 119,			/// æ‹·è´å¡«å……
+		MVD_ShadeCorrectPrepro = 120,		/// é˜´å½±æ ¡æ­£
+		MVD_SharpnessPrepro = 121,			/// æ¸…æ™°åº¦è¯„ä¼°
+		MVD_WarpDistortPrepro = 122,		/// å›¾åƒçŸ«æ­£
+		MVD_BoxOverlapPrepro = 123,			/// Boxé‡å ç‡
+		MVD_BoxMergePrepro = 124,			/// Boxèåˆ
+		MVD_ImageResizePrepro = 125,		/// å›¾åƒç¼©æ”¾
+		MVD_MultiLabelFilterPrepro = 126,	/// å¤šæ ‡ç­¾ç­›é€‰
+		MVD_BoxFilterPrepro = 127,			/// BOXè¿‡æ»¤
+		MVD_MirrorPrepro = 128,         /// å›¾åƒé•œåƒ
 
-		MVD_Code1DReader = 130,				/// Ò»Î¬ÂëÊ¶±ğ
-		MVD_Code2DReader = 131,				/// ¶şÎ¬ÂëÊ¶±ğ
-		MVD_CodeVerify = 132,				/// ÂëÆÀ¼¶£¨Ç¶ÔÚÂëÊ¶±ğÖĞ£©
-		MVD_OCR = 133,						/// ×Ö·ûÊ¶±ğ
+		MVD_Code1DReader = 130,				/// ä¸€ç»´ç è¯†åˆ«
+		MVD_Code2DReader = 131,				/// äºŒç»´ç è¯†åˆ«
+		MVD_CodeVerify = 132,				/// ç è¯„çº§ï¼ˆåµŒåœ¨ç è¯†åˆ«ä¸­ï¼‰
+		MVD_OCR = 133,						/// å­—ç¬¦è¯†åˆ«
 
-		MVD_ImageStitch = 140,				/// Í¼ÏñÆ´½Ó
+		MVD_ImageStitch = 140,				/// å›¾åƒæ‹¼æ¥
 
-		MVD_Track = 150, ///Ä¿±ê¸ú×Ù
+		MVD_Track = 150, ///ç›®æ ‡è·Ÿè¸ª
 
-		MVD_FlawDetect = 160, ///Æ¥ÅäÂË²¨
+		MVD_FlawDetect = 160, ///åŒ¹é…æ»¤æ³¢
 
-		MVD_CellSetLocation = 180, ///´®¶¨Î»
-		MVD_CellLocation = 181,   ///Õ¤¶¨Î»
-		MVD_GridLocation = 182,   ///Æ¬¶¨Î»
+		MVD_CellSetLocation = 180, ///ä¸²å®šä½
+		MVD_CellLocation = 181,   ///æ …å®šä½
+		MVD_GridLocation = 182,   ///ç‰‡å®šä½
 
-		MVD_DefectInspect = 200, ///Òì³£¼ì²â
+		MVD_DefectInspect = 200, ///å¼‚å¸¸æ£€æµ‹
 
-		MVD_MultiImageFusion = 220, ///¶àÍ¼ÈÚºÏ
+		MVD_MultiImageFusion = 220, ///å¤šå›¾èåˆ
 
 		MVD_Classier = 230,
 
-		MVD_SDK_TYPE_MAX = 230				/// SDKÀàĞÍ×î´óÖµ
+		MVD_SDK_TYPE_MAX = 230				/// SDKç±»å‹æœ€å¤§å€¼
 
     };
 
@@ -752,71 +752,71 @@ namespace VisionDesigner
     */
     enum _MVD_DL_SDK_TYPE__
     {
-        MVD_DL_SDK_TYPE_MIN     = 0,           /// Éî¶ÈSDKÀàĞÍ×îĞ¡Öµ
+        MVD_DL_SDK_TYPE_MIN     = 0,           /// æ·±åº¦SDKç±»å‹æœ€å°å€¼
 
-        MVD_DL_AllVersion       = 0,           /// ËùÓĞÀà±ğ
+        MVD_DL_AllVersion       = 0,           /// æ‰€æœ‰ç±»åˆ«
 
-        MVD_DL_CharDetect       = 1,           /// ×Ö·û¶¨Î»
-        MVD_DL_CharRecog        = 2,           /// ×Ö·ûÊ¶±ğ
-        MVD_DL_SingleCharDetect = 3,           /// µ¥×Ö·û¼ì²â
+        MVD_DL_CharDetect       = 1,           /// å­—ç¬¦å®šä½
+        MVD_DL_CharRecog        = 2,           /// å­—ç¬¦è¯†åˆ«
+        MVD_DL_SingleCharDetect = 3,           /// å•å­—ç¬¦æ£€æµ‹
 
-        MVD_DL_Classify        = 10,           /// Í¼Ïñ·ÖÀà
+        MVD_DL_Classify        = 10,           /// å›¾åƒåˆ†ç±»
 
-        MVD_DL_CodeReader      = 20,           /// ÂëÊ¶±ğ
-        MVD_DL_CodeVerify      = 21,           /// ÂëÆÀ¼¶ Ç¶ÔÚÂëÊ¶±ğÖĞ
+        MVD_DL_CodeReader      = 20,           /// ç è¯†åˆ«
+        MVD_DL_CodeVerify      = 21,           /// ç è¯„çº§ åµŒåœ¨ç è¯†åˆ«ä¸­
 
-        MVD_DL_Detect          = 30,           /// Ä¿±ê¼ì²â
+        MVD_DL_Detect          = 30,           /// ç›®æ ‡æ£€æµ‹
 
-		MVD_DL_Inspect         = 40,           /// Òì³£¼ì²â
-		MVD_DL_UnSupervisedSegment = 41,       /// ÎŞ¼à¶½·Ö¸î
-		MVD_DL_UnSupervisedClassify = 42,       /// ÎŞ¼à¶½·ÖÀà
+		MVD_DL_Inspect         = 40,           /// å¼‚å¸¸æ£€æµ‹
+		MVD_DL_UnSupervisedSegment = 41,       /// æ— ç›‘ç£åˆ†å‰²
+		MVD_DL_UnSupervisedClassify = 42,       /// æ— ç›‘ç£åˆ†ç±»
 
-        MVD_DL_InstanceSegment = 50,           /// ÊµÀı·Ö¸î
+        MVD_DL_InstanceSegment = 50,           /// å®ä¾‹åˆ†å‰²
 
-        MVD_DL_OCR             = 60,           /// Éî¶ÈOCR
+        MVD_DL_OCR             = 60,           /// æ·±åº¦OCR
 
-        MVD_DL_Retrieval       = 70,           /// Í¼Ïñ¼ìË÷
+        MVD_DL_Retrieval       = 70,           /// å›¾åƒæ£€ç´¢
 
-        MVD_DL_Segment         = 80,           /// Í¼Ïñ·Ö¸î
-		MVD_DL_SegmentV2       = 81,           /// Í¼Ïñ·Ö¸îv2
-		MVD_DL_FastSegment     = 82,           /// ¿ìËÙÍ¼Ïñ·Ö¸î
+        MVD_DL_Segment         = 80,           /// å›¾åƒåˆ†å‰²
+		MVD_DL_SegmentV2       = 81,           /// å›¾åƒåˆ†å‰²v2
+		MVD_DL_FastSegment     = 82,           /// å¿«é€Ÿå›¾åƒåˆ†å‰²
 		
-		MVD_DL_FewShotGallery         = 83,           /// FewShot gallery¹ÜÀí
-		MVD_DL_FewShotDetect       = 84,           /// FewShotÄ¿±ê¼ì²â
-		MVD_DL_FewShotInstanceSeg     = 85,           /// FewShotÊµÀı·Ö¸î
+		MVD_DL_FewShotGallery         = 83,           /// FewShot galleryç®¡ç†
+		MVD_DL_FewShotDetect       = 84,           /// FewShotç›®æ ‡æ£€æµ‹
+		MVD_DL_FewShotInstanceSeg     = 85,           /// FewShotå®ä¾‹åˆ†å‰²
 
-		MVD_DL_AIInspect  = 86,            /// AIÒì³£¼ì²â
+		MVD_DL_AIInspect  = 86,            /// AIå¼‚å¸¸æ£€æµ‹
 
-        MVD_DL_SDK_TYPE_MAX    = 86,           /// Éî¶ÈSDKÀàĞÍ×î´óÖµ
+        MVD_DL_SDK_TYPE_MAX    = 86,           /// æ·±åº¦SDKç±»å‹æœ€å¤§å€¼
     };
     /************************************************************************/
-    /*                            Éî¶ÈËã×ÓÀà                            */
+    /*                            æ·±åº¦ç®—å­ç±»                            */
     /************************************************************************/
     /** @enum  _MVD_CNN_MODEL_TYPE__
     *  @brief cnn model type
     */
     enum _MVD_CNN_MODEL_TYPE__
     {
-        MVD_CNN_MODEL_TYPE_CLASSIFY                = 0x0001, // ·ÖÀàÊ¶±ğ
-        MVD_CNN_MODEL_TYPE_DETECT                  = 0x0002, // Ä¿±ê¼ì²â
-        //MVD_CNN_MODEL_TYPE_SEMANTIC_SEGMENTATION = 0x0003, // ÓïÒå·Ö¸î£¨Ôİ²»Ö§³Ö£©
-        MVD_CNN_MODEL_TYPE_CHAR_DETECT             = 0x0004, // ÎÄ±¾¶¨Î»
-        MVD_CNN_MODEL_TYPE_CHAR_RECOG              = 0x0005, // ×Ö·ûÊ¶±ğ
-        MVD_CNN_MODEL_TYPE_INSPECT                 = 0x0006, // Òì³£¼ì²â
-        //MVD_CNN_MODEL_TYPE_IMAGE_DENOISE         = 0x0007, // Í¼Ïñ½µÔë£¨Ôİ²»Ö§³Ö£©
-        MVD_CNN_MODEL_TYPE_RETRIEVAL               = 0x0008, // Í¼Ïñ¼ìË÷
-        MVD_CNN_MODEL_TYPE_INSTANCE_SEGMENTATION   = 0x0009, // ÊµÀı·Ö¸î
-        //MVD_CNN_MODEL_TYPE_STEREO_MATCHING       = 0x000A, // Ë«Ä¿Æ¥Åä£¨Ôİ²»Ö§³Ö£©
-        //MVD_CNN_MODEL_TYPE_OCR                   = 0x000B, // OCR£¨Ôİ²»Ö§³Ö£©
-        //MVD_CNN_MODEL_TYPE_SEGMENT               = 0x000C, // Í¼Ïñ·Ö¸î£¨Ôİ²»Ö§³Ö£©
-		MVD_CNN_MODEL_TYPE_UASI                    = 0x000D, // ÎŞ¼à¶½·Ö¸î
-		MVD_CNN_MODEL_TYPE_SINGLE_CHAR_DETECT      = 0x000E, // µ¥×Ö·û¼ì²â
-		MVD_CNN_MODEL_TYPE_FEWSHOT_DETECT		   = 0x000F, // FewShotÄ¿±ê¼ì²â
-		MVD_CNN_MODEL_TYPE_FEWSHOT_INSSEG          = 0x0010, // FewShotÊµÀı·Ö¸î
-		MVD_CNN_MODEL_TYPE_FEWSHOT_DETECT_MODEL    = 0x0011, // FewShotÄ¿±ê¼ì²â(×¢²á)
-		MVD_CNN_MODEL_TYPE_FEWSHOT_INSSEG_MODEL    = 0x0012, // FewShotÊµÀı·Ö¸î(×¢²á)
-		MVD_CNN_MODEL_TYPE_UASI_CLS                = 0x0013, // ÎŞ¼à¶½·ÖÀà
-		MVD_CNN_MODEL_TYPE_AI_DEFECTINSPECT        = 0x0014, // AIÒì³£¼ì²â
+        MVD_CNN_MODEL_TYPE_CLASSIFY                = 0x0001, // åˆ†ç±»è¯†åˆ«
+        MVD_CNN_MODEL_TYPE_DETECT                  = 0x0002, // ç›®æ ‡æ£€æµ‹
+        //MVD_CNN_MODEL_TYPE_SEMANTIC_SEGMENTATION = 0x0003, // è¯­ä¹‰åˆ†å‰²ï¼ˆæš‚ä¸æ”¯æŒï¼‰
+        MVD_CNN_MODEL_TYPE_CHAR_DETECT             = 0x0004, // æ–‡æœ¬å®šä½
+        MVD_CNN_MODEL_TYPE_CHAR_RECOG              = 0x0005, // å­—ç¬¦è¯†åˆ«
+        MVD_CNN_MODEL_TYPE_INSPECT                 = 0x0006, // å¼‚å¸¸æ£€æµ‹
+        //MVD_CNN_MODEL_TYPE_IMAGE_DENOISE         = 0x0007, // å›¾åƒé™å™ªï¼ˆæš‚ä¸æ”¯æŒï¼‰
+        MVD_CNN_MODEL_TYPE_RETRIEVAL               = 0x0008, // å›¾åƒæ£€ç´¢
+        MVD_CNN_MODEL_TYPE_INSTANCE_SEGMENTATION   = 0x0009, // å®ä¾‹åˆ†å‰²
+        //MVD_CNN_MODEL_TYPE_STEREO_MATCHING       = 0x000A, // åŒç›®åŒ¹é…ï¼ˆæš‚ä¸æ”¯æŒï¼‰
+        //MVD_CNN_MODEL_TYPE_OCR                   = 0x000B, // OCRï¼ˆæš‚ä¸æ”¯æŒï¼‰
+        //MVD_CNN_MODEL_TYPE_SEGMENT               = 0x000C, // å›¾åƒåˆ†å‰²ï¼ˆæš‚ä¸æ”¯æŒï¼‰
+		MVD_CNN_MODEL_TYPE_UASI                    = 0x000D, // æ— ç›‘ç£åˆ†å‰²
+		MVD_CNN_MODEL_TYPE_SINGLE_CHAR_DETECT      = 0x000E, // å•å­—ç¬¦æ£€æµ‹
+		MVD_CNN_MODEL_TYPE_FEWSHOT_DETECT		   = 0x000F, // FewShotç›®æ ‡æ£€æµ‹
+		MVD_CNN_MODEL_TYPE_FEWSHOT_INSSEG          = 0x0010, // FewShotå®ä¾‹åˆ†å‰²
+		MVD_CNN_MODEL_TYPE_FEWSHOT_DETECT_MODEL    = 0x0011, // FewShotç›®æ ‡æ£€æµ‹(æ³¨å†Œ)
+		MVD_CNN_MODEL_TYPE_FEWSHOT_INSSEG_MODEL    = 0x0012, // FewShotå®ä¾‹åˆ†å‰²(æ³¨å†Œ)
+		MVD_CNN_MODEL_TYPE_UASI_CLS                = 0x0013, // æ— ç›‘ç£åˆ†ç±»
+		MVD_CNN_MODEL_TYPE_AI_DEFECTINSPECT        = 0x0014, // AIå¼‚å¸¸æ£€æµ‹
     };
 
 	/** @enum  _MVD_CNN_UASI_MODEL_TYPE__
@@ -829,21 +829,21 @@ namespace VisionDesigner
 	};
 		
 	/** @enum  _MVD_CNN_CROP_TYPE__
-	*  @brief ROI²Ã¼ôÄ£Ê½,
+	*  @brief ROIè£å‰ªæ¨¡å¼,
 	*/
 	typedef enum _MVD_CNN_CROP_TYPE__
 	{
-		MVD_CNN_ROI_TYPE_NORMAL = 0x00000001,		    ///> ²»²Ã¼ô
-		MVD_CNN_ROI_TYPE_CROP = 0x00000002				///> ²Ã¼ô£¬½öÖ§³ÖrectºÍbox
+		MVD_CNN_ROI_TYPE_NORMAL = 0x00000001,		    ///> ä¸è£å‰ª
+		MVD_CNN_ROI_TYPE_CROP = 0x00000002				///> è£å‰ªï¼Œä»…æ”¯æŒrectå’Œbox
 	}MVD_CNN_CROP_TYPE;
 
 	/** @enum  _MVD_CNN_SOD_TYPE__
-	*  @brief Ô¤²âÄ£Ê½
+	*  @brief é¢„æµ‹æ¨¡å¼
 	*/
 	typedef enum _MVD_CNN_PREDICT_MODE__
 	{
-		MVD_CNN_PREDICT_NORMAL = 0x00000001,		    ///> ÆÕÍ¨Ä£Ê½
-		MVD_CNN_PREDICT_SOD = 0x00000002				///> SODÄ£Ê½
+		MVD_CNN_PREDICT_NORMAL = 0x00000001,		    ///> æ™®é€šæ¨¡å¼
+		MVD_CNN_PREDICT_SOD = 0x00000002				///> SODæ¨¡å¼
 	}MVD_CNN_PREDICT_MODE;
 
 	/** @enum  _MVD_CNN_SOD_PARAM_STRU
@@ -851,26 +851,26 @@ namespace VisionDesigner
 	*/
 	typedef struct _MVD_CNN_SOD_PARAM_
 	{
-		unsigned int nCol;             // x·½Ïò»¬´°Êı
-		unsigned int nRow;             // y·½Ïò»¬´°Êı
-		float        fOverlap;         // xy»¬´°ÖØµşÂÊ
-		int          nReserved[4];    // ±£Áô×Ö½Ú
+		unsigned int nCol;             // xæ–¹å‘æ»‘çª—æ•°
+		unsigned int nRow;             // yæ–¹å‘æ»‘çª—æ•°
+		float        fOverlap;         // xyæ»‘çª—é‡å ç‡
+		int          nReserved[4];    // ä¿ç•™å­—èŠ‚
 	}MVD_CNN_SOD_PARAM;
 
 	/** @enum  _MVD_CNN_REGION_TYPE_
-	*  @brief ÇøÓòÀàĞÍ
+	*  @brief åŒºåŸŸç±»å‹
 	*/
 	typedef enum _MVD_CNN_REGION_TYPE_
 	{
-		MVD_REGION_NEGATIVE = 0,    //¸ºÏòÇøÓò
-		MVD_REGION_POSITIVE = 1,    //ÕıÏòÇøÓò
+		MVD_REGION_NEGATIVE = 0,    //è´Ÿå‘åŒºåŸŸ
+		MVD_REGION_POSITIVE = 1,    //æ­£å‘åŒºåŸŸ
 	}MVD_CNN_REGION_TYPE;
 }
-//È«¾Ö³õÊ¼»¯²ÎÊı
+//å…¨å±€åˆå§‹åŒ–å‚æ•°
 typedef struct _MVD_GLOBAL_INIT_PARAM
 {
 	bool bWarmupGpu;
-	int  nReserved[8];    // ±£Áô×Ö½Ú
+	int  nReserved[8];    // ä¿ç•™å­—èŠ‚
 }MVD_GLOBAL_INIT_PARAM;
 
 #endif // _MVD_ALGO_PARAM_DEFINE_H__
