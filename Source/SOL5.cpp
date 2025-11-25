@@ -3,10 +3,12 @@
 #include "IVmImageSource.h"
 #include "IVmProcedure.h"
 #include "IVmFastFeatureMatch.h"
+#include "IVMAffineTransform.h"
 using namespace VisionMasterSDK;
 using namespace VisionMasterSDK::VmSolution;
 using namespace VisionMasterSDK::VmProcedure;
 using namespace VisionMasterSDK::ImageSourceModule;
+using namespace VisionMasterSDK::IMVSAffineTransformModu;
 using namespace VisionMasterSDK::IMVSFastFeatureMatchModu;
 
 /*
@@ -99,7 +101,52 @@ int SOL5(void)
            //printf("eType %d\n", image.eType);
         }
         //----------------------------------------------------------------------------------------------------
+        /*
+            获取模块
+        */
+        IMVSAffineTransformModuTool * AffineTransformModule = (IMVSAffineTransformModuTool*)(*pVmSol)["流程1.仿射变换1"];
+        AffineTransformParams * AffineTransformParams = AffineTransformModule->GetParamObj();
+        printf("GetMirrorOrientation %d\n", AffineTransformParams->GetMirrorOrientation());
+        AffineTransformParams->SetMirrorOrientation(MirrorOrientation_Horizontal);
+        unsigned char *InputData = new unsigned char[32 * 32 * 3];
+        ImageBaseData InputValue;
+        InputValue.ImageData = InputData;
+        InputValue.Width = 32;
+        InputValue.Height = 32;
+        InputValue.DataLen = 32 * 32 * 3;
+        InputValue.Pixelformat = MVD_PIXEL_RGB_RGB24_C3;
+        for (int i = 0; i < 32; i++)
+        {
+            for (int j = 0; j < 32; j++)
+            {
+                int offset = 3 * (i * 32 + j);
+                InputData[offset + 0] = 0;
+                InputData[offset + 1] = 255;
+                InputData[offset + 2] = 0;
+                if (j < 16)
+                {
+                    InputData[offset + 0] = 255;
+                    InputData[offset + 1] = 0;
+                    InputData[offset + 2] = 0;
+                }
+            }
+        }
+        AffineTransformParams->SetInputImage(&InputValue);
 
+        AffineTransformModule->Run();
+        auto AffineTransformModuleResult = AffineTransformModule->GetResult();
+        if (AffineTransformModuleResult)
+        {
+            printf("AffineTransformModuleResult\n");
+            auto OutputImage = AffineTransformModuleResult->GetOutputImage();
+            printf("%d %d, Pixelformat %d\n", OutputImage.Width, OutputImage.Height, OutputImage.Pixelformat);
+            if (OutputImage.Width > 0)
+            {
+                stbi_write_png("C:\\AffineTransform.png", OutputImage.Width, OutputImage.Height, 3, OutputImage.ImageData, 0);
+                //stbi_write_jpg("C:\\imagesource.jpg", outputImage.Width, outputImage.Height, 3, outputImage.ImageData, 100);
+            }
+        }
+        //----------------------------------------------------------------------------------------------------
         /*
             获取模块
         */
